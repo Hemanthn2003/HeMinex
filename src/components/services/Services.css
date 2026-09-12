@@ -1,0 +1,1548 @@
+/* =========================================================
+   HeMinexTechnology
+   Services Universe
+   ========================================================= */
+
+.hm-services {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 50% 35%,
+      rgba(0, 76, 145, 0.09),
+      transparent 42%
+    ),
+    radial-gradient(
+      circle at 50% 75%,
+      rgba(0, 217, 255, 0.025),
+      transparent 38%
+    ),
+    var(--hm-bg);
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.hm-services__container {
+  position: relative;
+  z-index: 5;
+}
+
+.hm-services__header {
+  padding-top: 1rem;
+}
+
+
+/* =========================================================
+   SERVICE UNIVERSE
+   ========================================================= */
+
+.hm-services__universe {
+  position: relative;
+
+  width: 100%;
+  min-height: 1500px;
+
+  margin-top: -1rem;
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   STARS
+   ========================================================= */
+
+.hm-services__stars {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  z-index: 0;
+}
+
+.hm-services__stars span {
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 6px rgba(0, 217, 255, 0.75);
+
+  opacity: 0.35;
+
+  animation:
+    hm-pulse-soft 3s ease-in-out infinite;
+}
+
+.hm-services__stars span:nth-child(1) {
+  top: 7%;
+  left: 17%;
+}
+
+.hm-services__stars span:nth-child(2) {
+  top: 15%;
+  right: 12%;
+  animation-delay: 0.6s;
+}
+
+.hm-services__stars span:nth-child(3) {
+  top: 28%;
+  left: 7%;
+  animation-delay: 1s;
+}
+
+.hm-services__stars span:nth-child(4) {
+  top: 35%;
+  right: 19%;
+  animation-delay: 1.5s;
+}
+
+.hm-services__stars span:nth-child(5) {
+  top: 48%;
+  left: 18%;
+  animation-delay: 0.8s;
+}
+
+.hm-services__stars span:nth-child(6) {
+  top: 55%;
+  right: 7%;
+  animation-delay: 1.8s;
+}
+
+.hm-services__stars span:nth-child(7) {
+  top: 67%;
+  left: 8%;
+  animation-delay: 0.3s;
+}
+
+.hm-services__stars span:nth-child(8) {
+  top: 73%;
+  right: 22%;
+  animation-delay: 1.2s;
+}
+
+.hm-services__stars span:nth-child(9) {
+  top: 83%;
+  left: 25%;
+  animation-delay: 2s;
+}
+
+.hm-services__stars span:nth-child(10) {
+  top: 91%;
+  right: 13%;
+  animation-delay: 0.4s;
+}
+
+.hm-services__stars span:nth-child(11) {
+  top: 42%;
+  left: 48%;
+
+  width: 3px;
+  height: 3px;
+
+  animation-delay: 1.7s;
+}
+
+
+/* =========================================================
+   PLANET CONTAINER
+   ========================================================= */
+
+.hm-services__planets {
+  position: relative;
+
+  height: 1500px;
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   PLANET SLOTS
+   ========================================================= */
+
+.hm-services__planet-slot {
+  position: absolute;
+
+  width: min(100%, 550px);
+
+  z-index: 5;
+}
+
+
+/*
+  Desktop composition:
+
+  Planet 01  -> left
+  Planet 02  -> right
+  Planet 03  -> left
+  Planet 04  -> right
+*/
+
+.hm-services__planet-slot--1 {
+  top: 60px;
+  left: 8%;
+}
+
+.hm-services__planet-slot--2 {
+  top: 390px;
+  right: 8%;
+}
+
+.hm-services__planet-slot--3 {
+  top: 760px;
+  left: 8%;
+}
+
+.hm-services__planet-slot--4 {
+  top: 1130px;
+  right: 8%;
+}
+
+
+/* =========================================================
+   SERVICE PLANET
+   ========================================================= */
+
+.hm-service-planet {
+  position: relative;
+
+  width: 100%;
+  min-height: 320px;
+
+  display: flex;
+  align-items: center;
+
+  transition:
+    transform var(--hm-transition-slow);
+
+  z-index: 5;
+}
+
+
+/* =========================================================
+   PLANET BODY
+   ========================================================= */
+
+.hm-service-planet__body {
+  position: relative;
+
+  width: 245px;
+  height: 245px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle at 35% 30%,
+      rgba(255, 255, 255, 0.11),
+      rgba(0, 217, 255, 0.07) 24%,
+      rgba(5, 18, 33, 0.94) 62%,
+      rgba(2, 7, 15, 1) 100%
+    );
+
+  border:
+    1px solid rgba(0, 217, 255, 0.25);
+
+  box-shadow:
+    inset -25px -25px 55px rgba(0, 0, 0, 0.55),
+    inset 10px 10px 35px rgba(0, 217, 255, 0.08),
+    0 0 35px rgba(0, 217, 255, 0.10),
+    0 0 100px rgba(0, 217, 255, 0.07);
+
+  overflow: hidden;
+
+  z-index: 3;
+
+  animation:
+    hm-planet-float 6s ease-in-out infinite;
+}
+
+.hm-service-planet__shine {
+  position: absolute;
+
+  top: -20%;
+  left: -15%;
+
+  width: 70%;
+  height: 70%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.16),
+      transparent 68%
+    );
+
+  filter: blur(5px);
+
+  pointer-events: none;
+}
+
+.hm-service-planet__icon {
+  position: relative;
+
+  width: 105px;
+  height: 105px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(0, 217, 255, 0.18);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.12),
+      rgba(3, 7, 18, 0.65) 72%
+    );
+
+  box-shadow:
+    inset 0 0 25px rgba(0, 217, 255, 0.06),
+    0 0 25px rgba(0, 217, 255, 0.08);
+
+  z-index: 2;
+}
+
+.hm-service-planet__icon img {
+  width: 62px;
+  height: 62px;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 10px rgba(0, 217, 255, 0.28)
+    );
+}
+
+.hm-service-planet__number {
+  position: absolute;
+
+  right: 22px;
+  bottom: 20px;
+
+  color: rgba(141, 162, 187, 0.45);
+
+  font-family: var(--hm-font-mono);
+  font-size: 0.58rem;
+
+  letter-spacing: 0.12em;
+}
+
+
+/* =========================================================
+   PLANET HALO
+   ========================================================= */
+
+.hm-service-planet__halo {
+  position: absolute;
+
+  left: -25px;
+
+  width: 295px;
+  height: 295px;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.11),
+      transparent 68%
+    );
+
+  filter: blur(12px);
+
+  pointer-events: none;
+
+  z-index: 1;
+}
+
+
+/* =========================================================
+   ORBITS
+   ========================================================= */
+
+.hm-service-planet__orbit {
+  position: absolute;
+
+  left: -27px;
+
+  width: 300px;
+  height: 155px;
+
+  border:
+    1px solid rgba(0, 217, 255, 0.13);
+
+  border-radius: 50%;
+
+  transform:
+    rotate(-22deg);
+
+  pointer-events: none;
+
+  z-index: 2;
+}
+
+.hm-service-planet__orbit--one {
+  animation:
+    hm-orbit-spin 17s linear infinite;
+}
+
+.hm-service-planet__orbit--two {
+  width: 320px;
+  height: 135px;
+
+  border-color:
+    rgba(217, 173, 69, 0.12);
+
+  transform:
+    rotate(27deg);
+
+  animation:
+    hm-orbit-spin-reverse 21s linear infinite;
+}
+
+
+/* =========================================================
+   CONNECTOR
+   ========================================================= */
+
+.hm-service-planet__connector {
+  position: relative;
+
+  width: 85px;
+  height: 1px;
+
+  margin-left: -1px;
+
+  flex-shrink: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--hm-cyan),
+      rgba(0, 217, 255, 0.08)
+    );
+
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.4);
+
+  z-index: 4;
+}
+
+.hm-service-planet__connector span {
+  position: absolute;
+
+  top: 50%;
+  left: 35%;
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  transform: translateY(-50%);
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.95),
+    0 0 20px rgba(0, 217, 255, 0.45);
+
+  animation:
+    hm-scan-horizontal 2.4s linear infinite;
+}
+
+
+/* =========================================================
+   PLANET LABEL
+   ========================================================= */
+
+.hm-service-planet__label {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  min-width: 190px;
+
+  padding-left: 1.3rem;
+
+  z-index: 6;
+}
+
+.hm-service-planet__code {
+  color: var(--hm-cyan);
+
+  font-family: var(--hm-font-mono);
+  font-size: 0.53rem;
+
+  letter-spacing: 0.14em;
+}
+
+.hm-service-planet__label h3 {
+  margin-top: 0.4rem;
+
+  font-size: clamp(
+    1.7rem,
+    3vw,
+    2.7rem
+  );
+
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.hm-service-planet__name {
+  margin-top: 0.6rem;
+
+  color: var(--hm-muted);
+
+  font-size: 0.75rem;
+}
+
+
+/* =========================================================
+   PLANET ACTION
+   ========================================================= */
+
+.hm-service-planet__action {
+  position: absolute;
+
+  right: 0;
+  bottom: 18px;
+
+  display: grid;
+  place-items: center;
+
+  width: 40px;
+  height: 40px;
+
+  border:
+    1px solid rgba(126, 170, 220, 0.15);
+
+  border-radius: 50%;
+
+  color: var(--hm-cyan);
+
+  background:
+    rgba(3, 10, 20, 0.55);
+
+  transition:
+    transform var(--hm-transition-normal),
+    border-color var(--hm-transition-normal),
+    box-shadow var(--hm-transition-normal);
+
+  z-index: 7;
+}
+
+.hm-service-planet__action:hover {
+  transform:
+    translate(3px, -3px);
+
+  border-color:
+    var(--hm-border-cyan);
+
+  box-shadow:
+    0 0 25px rgba(0, 217, 255, 0.12);
+}
+
+
+/* =========================================================
+   ACTIVE PLANET
+   ========================================================= */
+
+.hm-service-planet--active
+  .hm-service-planet__body {
+  box-shadow:
+    inset -25px -25px 55px rgba(0, 0, 0, 0.55),
+    inset 10px 10px 35px rgba(0, 217, 255, 0.10),
+    0 0 45px rgba(0, 217, 255, 0.14),
+    0 0 120px rgba(0, 217, 255, 0.08);
+}
+
+
+/* =========================================================
+   GOLD SERVICE
+   ========================================================= */
+
+.hm-service-planet--gold
+  .hm-service-planet__body {
+  border-color:
+    rgba(217, 173, 69, 0.25);
+
+  box-shadow:
+    inset -25px -25px 55px rgba(0, 0, 0, 0.55),
+    inset 10px 10px 35px rgba(217, 173, 69, 0.06),
+    0 0 35px rgba(217, 173, 69, 0.08);
+}
+
+.hm-service-planet--gold
+  .hm-service-planet__icon {
+  border-color:
+    rgba(217, 173, 69, 0.20);
+}
+
+.hm-service-planet--gold
+  .hm-service-planet__code {
+  color: var(--hm-gold-bright);
+}
+
+
+/* =========================================================
+   DYNAMIC PCB CIRCUIT
+   ========================================================= */
+
+.hm-circuit-path {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 100%;
+
+  pointer-events: none;
+
+  overflow: visible;
+
+  z-index: 2;
+}
+
+.hm-circuit-path__svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   PCB BASE
+   ========================================================= */
+
+.hm-circuit-path__base {
+  fill: none;
+
+  stroke:
+    rgba(0, 217, 255, 0.085);
+
+  stroke-width: 2;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  vector-effect: non-scaling-stroke;
+}
+
+
+/* =========================================================
+   PCB ENERGY
+   ========================================================= */
+
+.hm-circuit-path__energy {
+  fill: none;
+
+  stroke:
+    url("#hmCircuitGradient");
+
+  stroke-width: 2.25;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray:
+    34 24;
+
+  vector-effect: non-scaling-stroke;
+
+  animation:
+    hm-circuit-run 7s linear infinite;
+}
+
+
+/* =========================================================
+   SERVICE BRANCHES
+   ========================================================= */
+
+.hm-circuit-path__branch {
+  fill: none;
+
+  stroke:
+    rgba(0, 217, 255, 0.16);
+
+  stroke-width: 1.25;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray:
+    5 8;
+
+  vector-effect: non-scaling-stroke;
+
+  opacity: 0.85;
+}
+
+
+/* =========================================================
+   DECORATIVE SIDE TRACES
+   ========================================================= */
+
+.hm-circuit-path__side-trace {
+  fill: none;
+
+  stroke:
+    rgba(0, 217, 255, 0.075);
+
+  stroke-width: 1;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  stroke-dasharray:
+    4 9;
+
+  vector-effect: non-scaling-stroke;
+
+  opacity: 0.75;
+}
+
+
+/* =========================================================
+   PCB NODES
+   ========================================================= */
+
+.hm-circuit-path__node-group {
+  transform-box: fill-box;
+  transform-origin: center;
+
+  animation:
+    hm-neon-cyan 2.5s ease-in-out infinite;
+}
+
+.hm-circuit-path__node-glow {
+  fill:
+    rgba(0, 217, 255, 0.08);
+
+  stroke:
+    rgba(0, 217, 255, 0.20);
+
+  stroke-width: 1;
+
+  filter:
+    url("#hmCircuitNodeGlow");
+}
+
+.hm-circuit-path__node {
+  fill:
+    var(--hm-bg);
+
+  stroke:
+    var(--hm-cyan);
+
+  stroke-width: 2;
+
+  vector-effect: non-scaling-stroke;
+
+  filter:
+    drop-shadow(
+      0 0 7px rgba(0, 217, 255, 0.65)
+    );
+}
+
+.hm-circuit-path__node-core {
+  fill:
+    var(--hm-cyan);
+
+  filter:
+    drop-shadow(
+      0 0 5px rgba(0, 217, 255, 0.9)
+    );
+}
+
+
+/* =========================================================
+   SERVICE DETAILS
+   ========================================================= */
+
+.hm-services__details {
+  position: relative;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(0, 1fr)
+    );
+
+  gap: 1rem;
+
+  padding-bottom: 8rem;
+
+  z-index: 5;
+}
+
+.hm-service-detail {
+  position: relative;
+
+  min-height: 360px;
+
+  padding: 2rem;
+
+  border:
+    1px solid rgba(126, 170, 220, 0.11);
+
+  border-radius:
+    var(--hm-radius-xl);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(11, 28, 48, 0.66),
+      rgba(3, 10, 20, 0.76)
+    );
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter:
+    blur(16px);
+
+  -webkit-backdrop-filter:
+    blur(16px);
+
+  overflow: hidden;
+
+  transition:
+    transform var(--hm-transition-normal),
+    border-color var(--hm-transition-normal),
+    box-shadow var(--hm-transition-normal);
+}
+
+.hm-service-detail:hover {
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(0, 217, 255, 0.20);
+
+  box-shadow:
+    0 30px 90px rgba(0, 0, 0, 0.36),
+    0 0 40px rgba(0, 217, 255, 0.05);
+}
+
+.hm-service-detail--gold:hover {
+  border-color:
+    rgba(217, 173, 69, 0.22);
+}
+
+
+/* =========================================================
+   DETAIL META
+   ========================================================= */
+
+.hm-service-detail__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  color:
+    var(--hm-muted-dark);
+
+  font-family:
+    var(--hm-font-mono);
+
+  font-size: 0.55rem;
+
+  letter-spacing: 0.13em;
+}
+
+
+/* =========================================================
+   DETAIL CONTENT
+   ========================================================= */
+
+.hm-service-detail__content {
+  display: grid;
+
+  grid-template-columns:
+    82px 1fr;
+
+  gap: 1.4rem;
+
+  margin-top: 2.5rem;
+}
+
+.hm-service-detail__icon {
+  width: 82px;
+  height: 82px;
+
+  display: grid;
+  place-items: center;
+
+  border:
+    1px solid rgba(0, 217, 255, 0.14);
+
+  border-radius: 18px;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.10),
+      rgba(3, 7, 18, 0.75)
+    );
+}
+
+.hm-service-detail__icon img {
+  width: 52px;
+  height: 52px;
+
+  object-fit: contain;
+}
+
+.hm-service-detail__eyebrow {
+  color:
+    var(--hm-cyan);
+
+  font-family:
+    var(--hm-font-mono);
+
+  font-size: 0.57rem;
+
+  letter-spacing: 0.12em;
+
+  text-transform: uppercase;
+}
+
+.hm-service-detail h3 {
+  margin-top: 0.35rem;
+
+  font-size:
+    clamp(
+      1.35rem,
+      2vw,
+      1.8rem
+    );
+
+  letter-spacing: -0.04em;
+}
+
+.hm-service-detail p {
+  margin-top: 0.8rem;
+
+  color:
+    var(--hm-muted);
+
+  font-size: 0.82rem;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   TAGS
+   ========================================================= */
+
+.hm-service-detail__tags {
+  display: flex;
+  flex-wrap: wrap;
+
+  gap: 0.4rem;
+
+  margin-top: 1rem;
+}
+
+.hm-service-detail__tags span {
+  padding:
+    0.35rem 0.55rem;
+
+  border:
+    1px solid rgba(126, 170, 220, 0.10);
+
+  border-radius: 4px;
+
+  color:
+    var(--hm-muted);
+
+  font-family:
+    var(--hm-font-mono);
+
+  font-size: 0.5rem;
+
+  letter-spacing: 0.05em;
+}
+
+
+/* =========================================================
+   METRICS
+   ========================================================= */
+
+.hm-service-detail__metrics {
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      minmax(0, 1fr)
+    );
+
+  gap: 1rem;
+
+  margin-top: 2.2rem;
+  padding-top: 1.3rem;
+
+  border-top:
+    1px solid rgba(126, 170, 220, 0.08);
+}
+
+.hm-service-detail__metric {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.25rem;
+}
+
+.hm-service-detail__metric strong {
+  color:
+    var(--hm-text);
+
+  font-family:
+    var(--hm-font-mono);
+
+  font-size: 0.67rem;
+}
+
+.hm-service-detail__metric span {
+  color:
+    var(--hm-muted-dark);
+
+  font-size: 0.49rem;
+
+  letter-spacing: 0.1em;
+}
+
+
+/* =========================================================
+   LAPTOP / TABLET
+   ========================================================= */
+
+@media (max-width: 1023px) {
+  .hm-services__universe {
+    min-height: 1300px;
+  }
+
+  .hm-services__planets {
+    height: 1300px;
+  }
+
+  .hm-services__planet-slot {
+    width: min(
+      100%,
+      500px
+    );
+  }
+
+  .hm-services__planet-slot--1 {
+    top: 40px;
+    left: 2%;
+  }
+
+  .hm-services__planet-slot--2 {
+    top: 350px;
+    right: 2%;
+  }
+
+  .hm-services__planet-slot--3 {
+    top: 660px;
+    left: 2%;
+  }
+
+  .hm-services__planet-slot--4 {
+    top: 970px;
+    right: 2%;
+  }
+
+  .hm-service-planet__body {
+    width: 210px;
+    height: 210px;
+  }
+
+  .hm-service-planet__halo {
+    width: 255px;
+    height: 255px;
+  }
+
+  .hm-service-planet__orbit {
+    left: -22px;
+
+    width: 260px;
+    height: 135px;
+  }
+
+  .hm-service-planet__orbit--two {
+    width: 275px;
+  }
+
+  .hm-service-planet__connector {
+    width: 60px;
+  }
+
+  .hm-services__details {
+    padding-bottom: 6rem;
+  }
+}
+
+
+/* =========================================================
+   BELOW 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .hm-services__universe {
+    min-height: 1240px;
+  }
+
+  .hm-services__planets {
+    height: 1240px;
+  }
+
+  /*
+    The circuit itself stays at the left edge.
+
+    CircuitPath.jsx determines the exact rail X.
+  */
+
+  .hm-circuit-path {
+    left: 0;
+    width: 100%;
+  }
+
+  .hm-services__planet-slot {
+    width: calc(
+      100% - 55px
+    );
+  }
+
+  .hm-services__planet-slot--1,
+  .hm-services__planet-slot--2,
+  .hm-services__planet-slot--3,
+  .hm-services__planet-slot--4 {
+    left: 55px;
+    right: auto;
+  }
+
+  .hm-service-planet {
+    width: 100%;
+  }
+
+  .hm-service-planet__connector {
+    margin-left: 0;
+  }
+
+  .hm-services__details {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hm-services__header {
+    padding-top: 0;
+  }
+
+  .hm-services__universe {
+    min-height: 1160px;
+  }
+
+  .hm-services__planets {
+    height: 1160px;
+
+    width:
+      calc(
+        100% - 1rem
+      );
+
+    margin-left: 0.5rem;
+  }
+
+  .hm-services__planet-slot {
+    width:
+      calc(
+        100% - 44px
+      );
+  }
+
+  .hm-services__planet-slot--1 {
+    top: 25px;
+    left: 44px;
+  }
+
+  .hm-services__planet-slot--2 {
+    top: 305px;
+    left: 44px;
+  }
+
+  .hm-services__planet-slot--3 {
+    top: 585px;
+    left: 44px;
+  }
+
+  .hm-services__planet-slot--4 {
+    top: 865px;
+    left: 44px;
+  }
+
+  .hm-service-planet {
+    min-height: 250px;
+  }
+
+  .hm-service-planet__body {
+    width: 165px;
+    height: 165px;
+  }
+
+  .hm-service-planet__icon {
+    width: 75px;
+    height: 75px;
+  }
+
+  .hm-service-planet__icon img {
+    width: 45px;
+    height: 45px;
+  }
+
+  .hm-service-planet__halo {
+    left: -18px;
+
+    width: 200px;
+    height: 200px;
+  }
+
+  .hm-service-planet__orbit {
+    left: -17px;
+
+    width: 205px;
+    height: 105px;
+  }
+
+  .hm-service-planet__orbit--two {
+    width: 220px;
+    height: 95px;
+  }
+
+  .hm-service-planet__connector {
+    width: 30px;
+  }
+
+  .hm-service-planet__label {
+    min-width: 0;
+
+    padding-left: 0.7rem;
+  }
+
+  .hm-service-planet__label h3 {
+    font-size: 1.45rem;
+  }
+
+  .hm-service-planet__name {
+    font-size: 0.62rem;
+  }
+
+  .hm-service-planet__action {
+    right: 0;
+    bottom: 5px;
+
+    width: 34px;
+    height: 34px;
+  }
+
+  .hm-services__stars span:nth-child(n + 7) {
+    display: none;
+  }
+
+  .hm-services__details {
+    grid-template-columns: 1fr;
+
+    gap: 0.8rem;
+
+    padding-bottom: 4rem;
+  }
+
+  .hm-service-detail {
+    min-height: 0;
+
+    padding: 1.35rem;
+
+    border-radius: 18px;
+  }
+
+  .hm-service-detail__content {
+    grid-template-columns:
+      58px 1fr;
+
+    gap: 0.9rem;
+
+    margin-top: 1.8rem;
+  }
+
+  .hm-service-detail__icon {
+    width: 58px;
+    height: 58px;
+
+    border-radius: 13px;
+  }
+
+  .hm-service-detail__icon img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .hm-service-detail p {
+    font-size: 0.77rem;
+  }
+
+  .hm-service-detail__metrics {
+    gap: 0.5rem;
+
+    margin-top: 1.7rem;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .hm-services__universe {
+    min-height: 1080px;
+  }
+
+  .hm-services__planets {
+    height: 1080px;
+
+    width:
+      calc(
+        100% - 0.5rem
+      );
+
+    margin-left: 0.25rem;
+  }
+
+  .hm-services__planet-slot {
+    width:
+      calc(
+        100% - 38px
+      );
+  }
+
+  .hm-services__planet-slot--1 {
+    top: 15px;
+    left: 38px;
+  }
+
+  .hm-services__planet-slot--2 {
+    top: 285px;
+    left: 38px;
+  }
+
+  .hm-services__planet-slot--3 {
+    top: 555px;
+    left: 38px;
+  }
+
+  .hm-services__planet-slot--4 {
+    top: 825px;
+    left: 38px;
+  }
+
+  .hm-service-planet__body {
+    width: 145px;
+    height: 145px;
+  }
+
+  .hm-service-planet__icon {
+    width: 66px;
+    height: 66px;
+  }
+
+  .hm-service-planet__icon img {
+    width: 39px;
+    height: 39px;
+  }
+
+  .hm-service-planet__halo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hm-service-planet__orbit {
+    width: 185px;
+    height: 95px;
+  }
+
+  .hm-service-planet__orbit--two {
+    width: 195px;
+  }
+
+  .hm-service-planet__connector {
+    width: 18px;
+  }
+
+  .hm-service-planet__label {
+    padding-left: 0.5rem;
+  }
+
+  .hm-service-planet__label h3 {
+    font-size: 1.25rem;
+  }
+
+  .hm-service-planet__code {
+    font-size: 0.46rem;
+  }
+
+  .hm-service-planet__name {
+    font-size: 0.55rem;
+  }
+
+  .hm-service-planet__action {
+    width: 31px;
+    height: 31px;
+  }
+
+  .hm-service-detail__content {
+    grid-template-columns: 1fr;
+  }
+
+  .hm-service-detail__icon {
+    width: 55px;
+    height: 55px;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .hm-services__planet-slot {
+    width:
+      calc(
+        100% - 34px
+      );
+  }
+
+  .hm-services__planet-slot--1,
+  .hm-services__planet-slot--2,
+  .hm-services__planet-slot--3,
+  .hm-services__planet-slot--4 {
+    left: 34px;
+  }
+
+  .hm-service-planet__body {
+    width: 132px;
+    height: 132px;
+  }
+
+  .hm-service-planet__icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .hm-service-planet__icon img {
+    width: 35px;
+    height: 35px;
+  }
+
+  .hm-service-planet__connector {
+    width: 14px;
+  }
+
+  .hm-service-planet__label h3 {
+    font-size: 1.08rem;
+  }
+
+  .hm-service-planet__name {
+    font-size: 0.5rem;
+  }
+
+  .hm-service-planet__action {
+    width: 28px;
+    height: 28px;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-service-planet__body,
+  .hm-service-planet__orbit,
+  .hm-service-planet__orbit--two,
+  .hm-service-planet__connector span,
+  .hm-circuit-path__energy,
+  .hm-circuit-path__node-group,
+  .hm-services__stars span {
+    animation: none;
+  }
+
+  .hm-service-detail,
+  .hm-service-planet__action,
+  .hm-service-planet {
+    transition: none;
+  }
+}
+
+
+/* =========================================================
+   PRINT / NON-INTERACTIVE FALLBACK
+   ========================================================= */
+
+@media print {
+  .hm-circuit-path,
+  .hm-services__stars {
+    display: none;
+  }
+
+  .hm-services {
+    overflow: visible;
+  }
+
+  .hm-service-detail {
+    break-inside: avoid;
+  }
+}

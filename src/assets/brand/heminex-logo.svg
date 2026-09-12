@@ -1,0 +1,50 @@
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 620 120"
+  role="img"
+  aria-labelledby="heminex-logo-title heminex-logo-desc"
+>
+  <title id="heminex-logo-title">HeMinexTechnology</title>
+  <desc id="heminex-logo-desc">HeMinexTechnology — Ideas, Code, Growth</desc>
+
+  <defs>
+    <linearGradient id="heminex-gradient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#1687ff"/>
+      <stop offset="55%" stop-color="#21d4fd"/>
+      <stop offset="100%" stop-color="#d9ad45"/>
+    </linearGradient>
+
+    <filter id="heminex-glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <g filter="url(#heminex-glow)">
+    <rect x="10" y="25" width="52" height="52" rx="12" fill="#1687ff"/>
+    <rect x="42" y="9" width="52" height="52" rx="12" fill="#21d4fd" opacity="0.82"/>
+    <rect x="42" y="55" width="52" height="52" rx="12" fill="#d9ad45" opacity="0.9"/>
+  </g>
+
+  <text
+    x="120"
+    y="64"
+    font-family="Inter, Arial, sans-serif"
+    font-size="38"
+    font-weight="700"
+    fill="#ffffff"
+  >HeMinexTechnology</text>
+
+  <text
+    x="122"
+    y="101"
+    font-family="Inter, Arial, sans-serif"
+    font-size="15"
+    font-weight="500"
+    letter-spacing="5"
+    fill="#8b9bb4"
+  >IDEAS • CODE • GROWTH</text>
+</svg>

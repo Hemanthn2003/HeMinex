@@ -1,0 +1,1026 @@
+/* =========================================================
+   PROCESS
+   Vertical PCB Circuit Timeline
+   ========================================================= */
+
+.process {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+
+  min-height: 100vh;
+  padding: 160px 0 120px;
+
+  background:
+    radial-gradient(
+      circle at 50% 15%,
+      rgba(35, 105, 180, 0.14),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 20% 65%,
+      rgba(0, 210, 255, 0.06),
+      transparent 28%
+    ),
+    #050914;
+}
+
+
+/* =========================================================
+   BACKGROUND
+   ========================================================= */
+
+.process__background {
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+}
+
+.process__grid {
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(70, 140, 200, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(70, 140, 200, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 60px 60px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent,
+      black 10%,
+      black 90%,
+      transparent
+    );
+}
+
+.process__scanline {
+  position: absolute;
+
+  left: 0;
+  right: 0;
+  top: 0;
+
+  height: 1px;
+
+  background:
+    rgba(90, 200, 255, 0.25);
+
+  box-shadow:
+    0 0 12px rgba(50, 180, 255, 0.35);
+
+  animation:
+    processScan 8s linear infinite;
+}
+
+.process__noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.035;
+
+  background-image:
+    radial-gradient(
+      rgba(255, 255, 255, 0.9) 0.6px,
+      transparent 0.6px
+    );
+
+  background-size: 5px 5px;
+}
+
+
+/* =========================================================
+   HEADER
+   ========================================================= */
+
+.process__header {
+  position: relative;
+
+  margin-bottom: 110px;
+}
+
+.section-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  margin-bottom: 32px;
+
+  color:
+    rgba(125, 200, 255, 0.72);
+
+  font-family:
+    "JetBrains Mono",
+    "SFMono-Regular",
+    Consolas,
+    monospace;
+
+  font-size: 11px;
+  font-weight: 700;
+
+  letter-spacing: 0.2em;
+
+  text-transform: uppercase;
+}
+
+.section-eyebrow__line {
+  width: 38px;
+  height: 1px;
+
+  background:
+    currentColor;
+
+  box-shadow:
+    0 0 10px currentColor;
+}
+
+.process__header-grid {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1.3fr)
+    minmax(280px, 0.7fr);
+
+  gap: 80px;
+
+  align-items: end;
+}
+
+.process__header h2 {
+  margin: 0;
+
+  color: #f4f8ff;
+
+  font-size:
+    clamp(
+      3.4rem,
+      7vw,
+      7rem
+    );
+
+  font-weight: 600;
+
+  line-height: 0.9;
+
+  letter-spacing: -0.055em;
+}
+
+.process__header h2 span {
+  color:
+    rgba(160, 190, 220, 0.42);
+}
+
+.process__header h2 strong {
+  color: #68cfff;
+
+  font-weight: inherit;
+
+  text-shadow:
+    0 0 25px
+    rgba(70, 190, 255, 0.28);
+}
+
+.process__intro {
+  max-width: 430px;
+}
+
+.process__intro p {
+  margin: 0 0 24px;
+
+  color:
+    rgba(205, 220, 238, 0.65);
+
+  font-size: 16px;
+
+  line-height: 1.8;
+}
+
+.process__system-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 9px;
+
+  color: #71d8ff;
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 10px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.16em;
+}
+
+.process__system-status::before {
+  content: "";
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background:
+    currentColor;
+
+  box-shadow:
+    0 0 10px currentColor;
+}
+
+
+/* =========================================================
+   TIMELINE
+   ========================================================= */
+
+.process__timeline {
+  position: relative;
+
+  min-height: 0;
+}
+
+
+/* =========================================================
+   DYNAMIC PCB CIRCUIT
+   ========================================================= */
+
+.process__circuit {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  overflow: visible;
+}
+
+.process__circuit-svg {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+.process-circuit__line {
+  fill: none;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  vector-effect:
+    non-scaling-stroke;
+}
+
+.process-circuit__line--main {
+  stroke:
+    rgba(80, 180, 255, 0.22);
+
+  stroke-width: 2;
+}
+
+.process-circuit__branch {
+  stroke:
+    rgba(80, 180, 255, 0.14);
+
+  stroke-width: 1.5;
+}
+
+.process-circuit__node {
+  transform-box: fill-box;
+
+  transform-origin: center;
+}
+
+.process-circuit__node circle:first-child {
+  fill: #050914;
+
+  stroke:
+    rgba(110, 200, 255, 0.45);
+
+  stroke-width: 2;
+}
+
+.process-circuit__node circle:last-child {
+  fill: #6bd4ff;
+
+  filter:
+    drop-shadow(
+      0 0 7px
+      rgba(75, 200, 255, 0.9)
+    );
+}
+
+
+/* =========================================================
+   PROCESS NODES
+   ========================================================= */
+
+.process__nodes {
+  position: relative;
+
+  z-index: 2;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 70px;
+}
+
+.process-node {
+  position: relative;
+
+  min-height: 240px;
+
+  width: 50%;
+}
+
+.process-node--left {
+  padding-right: 90px;
+
+  align-self: flex-start;
+}
+
+.process-node--right {
+  padding-left: 90px;
+
+  align-self: flex-end;
+}
+
+
+/* =========================================================
+   NODE CONNECTOR
+   ========================================================= */
+
+.process-node__connector {
+  position: absolute;
+
+  top: 50%;
+
+  width: 90px;
+  height: 1px;
+
+  transform:
+    translateY(-50%);
+}
+
+.process-node--left
+.process-node__connector {
+  right: 0;
+}
+
+.process-node--right
+.process-node__connector {
+  left: 0;
+}
+
+.process-node__connector-line {
+  display: block;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(70, 190, 255, 0.65)
+    );
+
+  box-shadow:
+    0 0 8px
+    rgba(60, 180, 255, 0.25);
+}
+
+.process-node--right
+.process-node__connector-line {
+  transform:
+    rotate(180deg);
+}
+
+.process-node__connector-dot {
+  position: absolute;
+
+  top: 50%;
+
+  width: 7px;
+  height: 7px;
+
+  border:
+    1px solid
+    rgba(110, 210, 255, 0.8);
+
+  border-radius: 50%;
+
+  background: #06101c;
+
+  transform:
+    translateY(-50%);
+
+  box-shadow:
+    0 0 10px
+    rgba(70, 200, 255, 0.45);
+}
+
+.process-node--left
+.process-node__connector-dot {
+  right: -4px;
+}
+
+.process-node--right
+.process-node__connector-dot {
+  left: -4px;
+}
+
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.process-node__card {
+  position: relative;
+
+  overflow: hidden;
+
+  padding: 30px;
+
+  border:
+    1px solid
+    rgba(110, 170, 220, 0.13);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(20, 40, 68, 0.7),
+      rgba(6, 13, 25, 0.82)
+    );
+
+  backdrop-filter:
+    blur(18px);
+
+  -webkit-backdrop-filter:
+    blur(18px);
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.035),
+    0 20px 70px
+      rgba(0, 0, 0, 0.28);
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.process-node__card::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(80, 190, 255, 0.045),
+      transparent
+    );
+
+  transform:
+    translateX(-100%);
+
+  transition:
+    transform 0.7s ease;
+}
+
+.process-node__card:hover {
+  border-color:
+    rgba(90, 200, 255, 0.35);
+
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.055),
+    0 30px 80px
+      rgba(0, 0, 0, 0.38),
+    0 0 30px
+      rgba(40, 150, 220, 0.06);
+}
+
+.process-node__card:hover::before {
+  transform:
+    translateX(100%);
+}
+
+
+/* =========================================================
+   CARD CONTENT
+   ========================================================= */
+
+.process-node__top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  padding-bottom: 20px;
+
+  border-bottom:
+    1px solid
+    rgba(110, 170, 220, 0.1);
+}
+
+.process-node__code {
+  color:
+    rgba(130, 190, 230, 0.48);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 0.13em;
+}
+
+.process-node__number {
+  color:
+    rgba(105, 205, 255, 0.65);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 13px;
+
+  font-weight: 700;
+}
+
+.process-node__body {
+  padding: 28px 0 24px;
+}
+
+.process-node__label {
+  color:
+    rgba(105, 205, 255, 0.7);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.14em;
+}
+
+.process-node h3 {
+  margin: 10px 0 15px;
+
+  color: #f2f7ff;
+
+  font-size:
+    clamp(
+      2rem,
+      3vw,
+      3rem
+    );
+
+  font-weight: 600;
+
+  line-height: 1;
+
+  letter-spacing: -0.04em;
+}
+
+.process-node p {
+  margin: 0;
+
+  color:
+    rgba(205, 220, 238, 0.62);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+.process-node ul {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+
+  margin: 22px 0 0;
+
+  padding: 0;
+
+  list-style: none;
+}
+
+.process-node li {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  color:
+    rgba(220, 232, 245, 0.72);
+
+  font-size: 12px;
+}
+
+.process-node__bullet {
+  width: 4px;
+  height: 4px;
+
+  flex: 0 0 auto;
+
+  background: #63ccff;
+
+  box-shadow:
+    0 0 8px
+    rgba(70, 200, 255, 0.8);
+}
+
+.process-node__status {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  padding-top: 16px;
+
+  border-top:
+    1px solid
+    rgba(110, 170, 220, 0.08);
+
+  color:
+    rgba(120, 180, 220, 0.42);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 8px;
+
+  letter-spacing: 0.12em;
+}
+
+.process-node__status-light {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #64d4ff;
+
+  box-shadow:
+    0 0 8px
+    rgba(70, 205, 255, 0.8);
+}
+
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.process__footer {
+  display: flex;
+
+  align-items: center;
+
+  gap: 20px;
+
+  margin-top: 90px;
+
+  color:
+    rgba(110, 180, 220, 0.42);
+
+  font-family:
+    "JetBrains Mono",
+    monospace;
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+}
+
+.process__footer-line {
+  flex: 1;
+
+  height: 1px;
+
+  background:
+    rgba(100, 170, 220, 0.12);
+}
+
+
+/* =========================================================
+   ANIMATION
+   ========================================================= */
+
+@keyframes processScan {
+  from {
+    transform:
+      translateY(-20px);
+  }
+
+  to {
+    transform:
+      translateY(100vh);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .process__scanline {
+    animation: none !important;
+
+    display: none;
+  }
+
+  .process__noise {
+    animation: none !important;
+  }
+
+  .process-node__card {
+    transition: none !important;
+  }
+
+  .process-node__card:hover {
+    transform: none !important;
+  }
+
+  .process-node__card::before {
+    display: none;
+  }
+
+  .process-circuit__line {
+    stroke-dasharray: none !important;
+
+    stroke-dashoffset: 0 !important;
+  }
+
+  .process-circuit__node {
+    opacity: 1 !important;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   601px - 900px
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .process {
+    padding: 120px 0 90px;
+  }
+
+  .process__header-grid {
+    grid-template-columns: 1fr;
+
+    gap: 35px;
+  }
+
+  .process__header {
+    margin-bottom: 80px;
+  }
+
+  /*
+  ----------------------------------------------------------
+  Dynamic circuit
+
+  React calculates the actual rail position.
+  CSS only keeps the circuit attached to the
+  timeline.
+  ----------------------------------------------------------
+  */
+
+  .process__circuit {
+    left: 0;
+  }
+
+  .process__nodes {
+    gap: 35px;
+  }
+
+  /*
+  ----------------------------------------------------------
+  Single-sided cards
+  ----------------------------------------------------------
+  */
+
+  .process-node,
+  .process-node--left,
+  .process-node--right {
+    width: 100%;
+
+    align-self: stretch;
+
+    padding-left: 75px;
+    padding-right: 0;
+  }
+
+  /*
+  ----------------------------------------------------------
+  Connector becomes a left-side connector.
+  ----------------------------------------------------------
+  */
+
+  .process-node__connector {
+    left: 0 !important;
+    right: auto !important;
+
+    width: 75px;
+
+    transform:
+      translateY(-50%);
+  }
+
+  .process-node__connector-line {
+    background:
+      linear-gradient(
+        90deg,
+        rgba(70, 190, 255, 0.65),
+        transparent
+      );
+
+    transform: none !important;
+  }
+
+  /*
+  ----------------------------------------------------------
+  Connector dot sits toward the PCB rail.
+  ----------------------------------------------------------
+  */
+
+  .process-node__connector-dot {
+    left: 30px !important;
+    right: auto !important;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ≤ 600px
+   ========================================================= */
+
+@media (max-width: 600px) {
+  .process {
+    padding: 95px 0 70px;
+  }
+
+  .process__header {
+    margin-bottom: 60px;
+  }
+
+  .process__header h2 {
+    font-size:
+      clamp(
+        2.8rem,
+        15vw,
+        4.5rem
+      );
+  }
+
+  .process__intro p {
+    font-size: 14px;
+  }
+
+  /*
+  ----------------------------------------------------------
+  Circuit rail is calculated as 24px by React.
+  ----------------------------------------------------------
+  */
+
+  .process__circuit {
+    left: 0;
+  }
+
+  /*
+  ----------------------------------------------------------
+  Cards move closer to the PCB rail.
+  ----------------------------------------------------------
+  */
+
+  .process-node,
+  .process-node--left,
+  .process-node--right {
+    padding-left: 48px;
+  }
+
+  .process-node__connector {
+    width: 48px;
+  }
+
+  .process-node__connector-dot {
+    left: 20px !important;
+  }
+
+  .process-node__card {
+    padding: 22px;
+  }
+
+  .process-node h3 {
+    font-size: 2rem;
+  }
+
+  .process-node p {
+    font-size: 13px;
+  }
+
+  .process-node li {
+    font-size: 11px;
+  }
+
+  .process__footer {
+    flex-wrap: wrap;
+
+    gap: 12px;
+  }
+
+  .process__footer-line {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL PHONES
+   ≤ 380px
+   ========================================================= */
+
+@media (max-width: 380px) {
+  .process {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .process-node {
+    padding-left: 42px;
+  }
+
+  .process-node__connector {
+    width: 42px;
+  }
+
+  .process-node__connector-dot {
+    left: 17px !important;
+  }
+
+  .process-node__card {
+    padding: 18px;
+  }
+
+  .process-node__top {
+    gap: 10px;
+  }
+
+  .process-node__code {
+    font-size: 8px;
+  }
+
+  .process-node__number {
+    font-size: 11px;
+  }
+
+  .process-node h3 {
+    font-size: 1.75rem;
+  }
+}

@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<defs>
+  <radialGradient id="core" cx="50%" cy="45%">
+    <stop offset="0" stop-color="#063f2c"/>
+    <stop offset=".72" stop-color="#021b16"/>
+    <stop offset="1" stop-color="#000b09"/>
+  </radialGradient>
+  <linearGradient id="green" x1="0" y1="0" x2="1" y2="1">
+    <stop stop-color="#00ff8a"/><stop offset=".5" stop-color="#00f0c0"/><stop offset="1" stop-color="#00d9ff"/>
+  </linearGradient>
+  <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="7" result="b"/>
+    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+  </filter>
+  <filter id="blur" x="-100%" y="-100%" width="300%" height="300%">
+    <feGaussianBlur stdDeviation="22"/>
+  </filter>
+  <style>
+    .orbit1{animation:spin1 5s linear infinite;transform-origin:256px 256px}
+    .orbit2{animation:spin2 8s linear infinite;transform-origin:256px 256px}
+    .orbit3{animation:spin3 11s linear infinite;transform-origin:256px 256px}
+    .pulse{animation:pulse 2s ease-in-out infinite}
+    @keyframes spin1{to{transform:rotate(360deg)}}
+    @keyframes spin2{to{transform:rotate(-360deg)}}
+    @keyframes spin3{to{transform:rotate(360deg)}}
+    @keyframes pulse{50%{opacity:.55;transform:scale(1.045)}}
+  </style>
+</defs>
+
+<circle class="pulse" cx="256" cy="256" r="132" fill="#00ff8a" opacity=".13" filter="url(#blur)"/>
+<circle cx="256" cy="256" r="128" fill="url(#core)" stroke="#00ff9d" stroke-width="2" opacity=".98"/>
+<circle cx="256" cy="256" r="139" fill="none" stroke="url(#green)" stroke-width="8" opacity=".9" filter="url(#glow)"/>
+<circle cx="256" cy="256" r="151" fill="none" stroke="#00e5c0" stroke-width="2" stroke-dasharray="42 16 9 20" opacity=".75"/>
+
+<g class="orbit1" fill="none" stroke="url(#green)" stroke-width="5" filter="url(#glow)">
+  <ellipse cx="256" cy="256" rx="196" ry="72"/>
+  <circle cx="452" cy="256" r="9" fill="#00ffb3" stroke="none"/>
+</g>
+<g class="orbit2" fill="none" stroke="#00e5ff" stroke-width="3" opacity=".8" filter="url(#glow)">
+  <ellipse cx="256" cy="256" rx="205" ry="91" transform="rotate(55 256 256)"/>
+  <circle cx="256" cy="165" r="7" fill="#00e5ff" stroke="none"/>
+</g>
+<g class="orbit3" fill="none" stroke="#00ff9d" stroke-width="2" opacity=".55">
+  <ellipse cx="256" cy="256" rx="218" ry="110" transform="rotate(-32 256 256)"/>
+</g>
+
+<!-- WhatsApp-style mark -->
+<g filter="url(#glow)">
+  <path d="M256 167c-50 0-91 40-91 90 0 17 5 33 13 47l-16 43 45-15c14 9 31 14 49 14 50 0 91-40 91-90s-41-89-91-89z"
+        fill="none" stroke="#f4fffb" stroke-width="16" stroke-linejoin="round"/>
+  <path d="M221 232c5 18 20 33 38 39l14-11c4-3 9-3 13 0l17 9c4 2 6 7 4 11-5 11-14 16-25 14-37-7-68-38-75-75-2-11 3-20 14-25 4-2 9 0 11 4l9 17c2 4 2 8 0 11z"
+        fill="none" stroke="#f4fffb" stroke-width="13" stroke-linecap="round" stroke-linejoin="round"/>
+</g>
+
+<g fill="#00ffad" filter="url(#glow)">
+  <circle cx="91" cy="164" r="7"/><circle cx="421" cy="369" r="6"/>
+  <circle cx="112" cy="389" r="4"/><circle cx="395" cy="119" r="4"/>
+</g>
+</svg>

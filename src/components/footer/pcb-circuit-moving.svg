@@ -1,0 +1,144 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" fill="none">
+  <defs>
+    <linearGradient id="trace" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c8ed0" stop-opacity="0"/>
+      <stop offset=".42" stop-color="#31b7ff" stop-opacity=".55"/>
+      <stop offset=".72" stop-color="#f0c967" stop-opacity=".9"/>
+      <stop offset="1" stop-color="#f0c967" stop-opacity="0"/>
+    </linearGradient>
+
+    <radialGradient id="node">
+      <stop offset="0" stop-color="#fff2a3"/>
+      <stop offset=".25" stop-color="#f0c967"/>
+      <stop offset=".55" stop-color="#31b7ff" stop-opacity=".5"/>
+      <stop offset="1" stop-color="#31b7ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="4" result="b"/>
+      <feMerge>
+        <feMergeNode in="b"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+
+    <pattern id="microGrid" width="70" height="70" patternUnits="userSpaceOnUse">
+      <path d="M0 35H70M35 0V70" stroke="#31b7ff" stroke-opacity=".035"/>
+      <circle cx="35" cy="35" r="1.3" fill="#31b7ff" fill-opacity=".13"/>
+    </pattern>
+
+    <path id="route1" d="M0 525H180V455H390V390H610V330H800"/>
+    <path id="route2" d="M1600 170H1420V240H1210V305H1000V365H800"/>
+    <path id="route3" d="M800 0V115H720V190H560V250H400"/>
+    <path id="route4" d="M800 700V585H880V510H1040V450H1200"/>
+  </defs>
+
+  <rect width="1600" height="700" fill="url(#microGrid)"/>
+
+  <!-- Main PCB traces -->
+  <g stroke="url(#trace)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <use href="#route1"/>
+    <use href="#route2"/>
+    <use href="#route3"/>
+    <use href="#route4"/>
+    <path d="M0 120H250V185H470V245H680V290H800"/>
+    <path d="M1600 580H1360V520H1150V470H930V410H800"/>
+    <path d="M270 700V610H350V540H470V485H610"/>
+    <path d="M1330 0V95H1250V160H1130V220H980"/>
+  </g>
+
+  <!-- Circuit branches -->
+  <g stroke="#31b7ff" stroke-opacity=".26" stroke-width="1.2">
+    <path d="M180 455V385H110"/>
+    <path d="M390 390V315H300"/>
+    <path d="M610 330V250H540"/>
+    <path d="M1420 240V315H1510"/>
+    <path d="M1210 305V375H1300"/>
+    <path d="M1000 365V430H1080"/>
+    <path d="M720 190V120H640"/>
+    <path d="M560 250V175H490"/>
+    <path d="M880 510V590H960"/>
+    <path d="M1040 450V535H1120"/>
+  </g>
+
+  <!-- Pads / nodes -->
+  <g fill="url(#node)" filter="url(#glow)">
+    <circle cx="180" cy="455" r="8"/>
+    <circle cx="390" cy="390" r="7"/>
+    <circle cx="610" cy="330" r="7"/>
+    <circle cx="800" cy="330" r="11"/>
+    <circle cx="1420" cy="240" r="8"/>
+    <circle cx="1210" cy="305" r="7"/>
+    <circle cx="1000" cy="365" r="7"/>
+    <circle cx="720" cy="190" r="7"/>
+    <circle cx="560" cy="250" r="7"/>
+    <circle cx="880" cy="510" r="7"/>
+    <circle cx="1040" cy="450" r="7"/>
+  </g>
+
+  <g fill="#31b7ff" fill-opacity=".5">
+    <circle cx="110" cy="385" r="3"/>
+    <circle cx="300" cy="315" r="3"/>
+    <circle cx="540" cy="250" r="3"/>
+    <circle cx="1510" cy="315" r="3"/>
+    <circle cx="1300" cy="375" r="3"/>
+    <circle cx="1080" cy="430" r="3"/>
+    <circle cx="640" cy="120" r="3"/>
+    <circle cx="490" cy="175" r="3"/>
+    <circle cx="960" cy="590" r="3"/>
+    <circle cx="1120" cy="535" r="3"/>
+  </g>
+
+  <!-- Moving energy particles -->
+  <g filter="url(#glow)">
+    <circle r="4" fill="#f0c967">
+      <animateMotion dur="4.5s" repeatCount="indefinite">
+        <mpath href="#route1"/>
+      </animateMotion>
+    </circle>
+
+    <circle r="3.5" fill="#31b7ff">
+      <animateMotion dur="5.5s" begin="-2s" repeatCount="indefinite">
+        <mpath href="#route2"/>
+      </animateMotion>
+    </circle>
+
+    <circle r="3.5" fill="#f0c967">
+      <animateMotion dur="4.8s" begin="-1.2s" repeatCount="indefinite">
+        <mpath href="#route3"/>
+      </animateMotion>
+    </circle>
+
+    <circle r="3.5" fill="#31b7ff">
+      <animateMotion dur="5.2s" begin="-2.5s" repeatCount="indefinite">
+        <mpath href="#route4"/>
+      </animateMotion>
+    </circle>
+  </g>
+
+  <!-- Central processor -->
+  <g transform="translate(800 330)">
+    <rect x="-55" y="-55" width="110" height="110" rx="5"
+      stroke="#f0c967" stroke-opacity=".18" fill="#020912" fill-opacity=".5"/>
+    <rect x="-38" y="-38" width="76" height="76" rx="3"
+      stroke="#31b7ff" stroke-opacity=".3"/>
+    <rect x="-18" y="-18" width="36" height="36" rx="2"
+      fill="#f0c967" fill-opacity=".08"
+      stroke="#f0c967" stroke-opacity=".7"
+      filter="url(#glow)">
+      <animate attributeName="opacity" values=".45;1;.45" dur="2.2s" repeatCount="indefinite"/>
+    </rect>
+
+    <g stroke="#31b7ff" stroke-opacity=".35" stroke-width="2">
+      <path d="M-68-25H-55M-68 0H-55M-68 25H-55"/>
+      <path d="M68-25H55M68 0H55M68 25H55"/>
+      <path d="M-25-68V-55M0-68V-55M25-68V-55"/>
+      <path d="M-25 68V55M0 68V55M25 68V55"/>
+    </g>
+  </g>
+
+  <!-- Subtle scanning beam -->
+  <rect x="0" y="0" width="1600" height="2" fill="#31b7ff" opacity=".08">
+    <animate attributeName="y" values="0;698;0" dur="9s" repeatCount="indefinite"/>
+  </rect>
+</svg>

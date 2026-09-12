@@ -1,0 +1,1202 @@
+/* =========================================================
+   HeMinexTechnology
+   Futuristic Environment Effects
+   ========================================================= */
+
+
+/* =========================================================
+   FUTURISTIC BACKGROUND BASE
+   ========================================================= */
+
+.hm-tech-environment {
+  position: relative;
+  isolation: isolate;
+
+  background:
+    radial-gradient(
+      circle at 50% 20%,
+      rgba(0, 91, 180, 0.12),
+      transparent 38%
+    ),
+    radial-gradient(
+      circle at 15% 65%,
+      rgba(0, 217, 255, 0.055),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(22, 119, 255, 0.055),
+      transparent 32%
+    ),
+    var(--hm-bg);
+}
+
+
+/* =========================================================
+   ATMOSPHERIC GLOW
+   ========================================================= */
+
+.hm-atmosphere {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: var(--hm-z-background);
+}
+
+.hm-atmosphere::before,
+.hm-atmosphere::after {
+  content: "";
+
+  position: absolute;
+
+  width: min(70vw, 900px);
+  height: min(70vw, 900px);
+
+  border-radius: 50%;
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+.hm-atmosphere::before {
+  top: -35%;
+  left: 10%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.10) 0%,
+      rgba(22, 119, 255, 0.04) 38%,
+      transparent 70%
+    );
+}
+
+.hm-atmosphere::after {
+  right: -20%;
+  bottom: -30%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(22, 119, 255, 0.10) 0%,
+      rgba(0, 217, 255, 0.035) 42%,
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   TECH GRID
+   ========================================================= */
+
+.hm-grid {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(50, 125, 205, 0.075) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(50, 125, 205, 0.075) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    64px 64px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 82%,
+      transparent 100%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      black 12%,
+      black 82%,
+      transparent 100%
+    );
+
+  opacity: 0.45;
+
+  z-index: var(--hm-z-background);
+}
+
+
+/* Fine grid */
+
+.hm-grid--fine {
+  background-size: 24px 24px;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 217, 255, 0.035) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 217, 255, 0.035) 1px,
+      transparent 1px
+    );
+
+  opacity: 0.35;
+}
+
+
+/* Large grid */
+
+.hm-grid--large {
+  background-size: 120px 120px;
+
+  background-image:
+    linear-gradient(
+      rgba(22, 119, 255, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(22, 119, 255, 0.055) 1px,
+      transparent 1px
+    );
+
+  opacity: 0.32;
+}
+
+
+/* =========================================================
+   GRID PERSPECTIVE
+   ========================================================= */
+
+.hm-grid-perspective {
+  position: absolute;
+
+  left: -10%;
+  right: -10%;
+  bottom: -18%;
+
+  height: 65%;
+
+  perspective: 700px;
+
+  pointer-events: none;
+
+  overflow: hidden;
+
+  opacity: 0.55;
+
+  z-index: var(--hm-z-background);
+}
+
+.hm-grid-perspective::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(0, 217, 255, 0.15) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(0, 217, 255, 0.15) 1px,
+      transparent 1px
+    );
+
+  background-size: 55px 55px;
+
+  transform:
+    rotateX(62deg)
+    scale(1.45);
+
+  transform-origin: center bottom;
+
+  mask-image:
+    linear-gradient(
+      to top,
+      black,
+      transparent 85%
+    );
+
+  -webkit-mask-image:
+    linear-gradient(
+      to top,
+      black,
+      transparent 85%
+    );
+}
+
+
+/* =========================================================
+   PCB BACKGROUND IMAGE
+   ========================================================= */
+
+.hm-pcb-background {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    url("../assets/backgrounds/pcb-circuit-background.svg");
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  opacity: 0.32;
+
+  mix-blend-mode: screen;
+
+  z-index: var(--hm-z-background);
+}
+
+
+.hm-pcb-background--subtle {
+  opacity: 0.18;
+}
+
+
+.hm-pcb-background--strong {
+  opacity: 0.48;
+}
+
+
+/* =========================================================
+   PCB VIGNETTE
+   ========================================================= */
+
+.hm-pcb-vignette {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      ellipse at center,
+      transparent 20%,
+      rgba(3, 7, 18, 0.12) 50%,
+      rgba(3, 7, 18, 0.78) 100%
+    );
+
+  z-index: var(--hm-z-background);
+}
+
+
+/* =========================================================
+   EDGE VIGNETTE
+   ========================================================= */
+
+.hm-vignette {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(1, 4, 10, 0.72),
+      transparent 16%,
+      transparent 84%,
+      rgba(1, 4, 10, 0.72)
+    ),
+    linear-gradient(
+      0deg,
+      rgba(1, 4, 10, 0.78),
+      transparent 18%,
+      transparent 82%,
+      rgba(1, 4, 10, 0.55)
+    );
+
+  z-index: var(--hm-z-background);
+}
+
+
+/* =========================================================
+   SCANLINES
+   ========================================================= */
+
+.hm-scanlines {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.018) 0px,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px,
+      transparent 5px
+    );
+
+  opacity: 0.32;
+
+  z-index: var(--hm-z-overlay);
+
+  mix-blend-mode: overlay;
+}
+
+
+/* Moving scan beam */
+
+.hm-scan-beam {
+  position: absolute;
+
+  top: -30%;
+  left: 0;
+
+  width: 100%;
+  height: 35%;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      rgba(0, 217, 255, 0.045),
+      rgba(0, 217, 255, 0.13),
+      rgba(0, 217, 255, 0.035),
+      transparent
+    );
+
+  filter: blur(2px);
+
+  opacity: 0.6;
+
+  animation:
+    hm-scan 7s linear infinite;
+
+  z-index: var(--hm-z-overlay);
+}
+
+
+/* =========================================================
+   NOISE / FILM GRAIN
+   ========================================================= */
+
+.hm-noise {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.035;
+
+  z-index: var(--hm-z-overlay);
+
+  background-image:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.7'/%3E%3C/svg%3E");
+
+  mix-blend-mode: screen;
+}
+
+
+/* =========================================================
+   NEON GLOW ORB
+   ========================================================= */
+
+.hm-glow-orb {
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.18) 0%,
+      rgba(22, 119, 255, 0.09) 28%,
+      transparent 70%
+    );
+
+  filter: blur(18px);
+
+  animation:
+    hm-pulse-soft 4s ease-in-out infinite;
+}
+
+
+.hm-glow-orb--blue {
+  background:
+    radial-gradient(
+      circle,
+      rgba(22, 119, 255, 0.22) 0%,
+      rgba(22, 119, 255, 0.08) 35%,
+      transparent 70%
+    );
+}
+
+
+.hm-glow-orb--gold {
+  background:
+    radial-gradient(
+      circle,
+      rgba(217, 173, 69, 0.18) 0%,
+      rgba(217, 173, 69, 0.06) 35%,
+      transparent 70%
+    );
+}
+
+
+/* =========================================================
+   NEON POINT
+   ========================================================= */
+
+.hm-neon-point {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 5px rgba(0, 217, 255, 0.95),
+    0 0 16px rgba(0, 217, 255, 0.7),
+    0 0 35px rgba(0, 217, 255, 0.35);
+}
+
+
+.hm-neon-point::before,
+.hm-neon-point::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -5px;
+
+  border: 1px solid var(--hm-cyan);
+
+  border-radius: 50%;
+
+  opacity: 0.35;
+
+  animation:
+    hm-pulse 2.4s ease-out infinite;
+}
+
+
+.hm-neon-point::after {
+  animation-delay: 1.2s;
+}
+
+
+/* =========================================================
+   CIRCUIT NODE
+   ========================================================= */
+
+.hm-circuit-node {
+  position: relative;
+
+  display: grid;
+  place-items: center;
+
+  width: 14px;
+  height: 14px;
+
+  border: 1px solid rgba(0, 217, 255, 0.65);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.8) 0%,
+      rgba(0, 217, 255, 0.15) 35%,
+      rgba(3, 7, 18, 0.9) 70%
+    );
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.55),
+    0 0 25px rgba(0, 217, 255, 0.18);
+}
+
+
+.hm-circuit-node::after {
+  content: "";
+
+  position: absolute;
+
+  inset: -7px;
+
+  border: 1px solid rgba(0, 217, 255, 0.2);
+
+  border-radius: 50%;
+
+  animation:
+    hm-pulse 2.6s ease-out infinite;
+}
+
+
+/* =========================================================
+   CIRCUIT LINE
+   ========================================================= */
+
+.hm-circuit-line {
+  position: relative;
+
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(0, 217, 255, 0.15),
+      rgba(0, 217, 255, 0.6),
+      rgba(0, 217, 255, 0.15),
+      transparent
+    );
+
+  overflow: hidden;
+}
+
+
+.hm-circuit-line::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -30%;
+
+  width: 30%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--hm-cyan),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(0, 217, 255, 0.8),
+    0 0 30px rgba(0, 217, 255, 0.35);
+
+  animation:
+    hm-scan-horizontal 2.8s linear infinite;
+}
+
+
+/* =========================================================
+   CIRCUIT CORNER
+   ========================================================= */
+
+.hm-circuit-corner {
+  position: relative;
+
+  width: 70px;
+  height: 70px;
+
+  pointer-events: none;
+}
+
+
+.hm-circuit-corner::before,
+.hm-circuit-corner::after {
+  content: "";
+
+  position: absolute;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--hm-cyan),
+      transparent
+    );
+
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.4);
+}
+
+
+.hm-circuit-corner::before {
+  top: 0;
+  left: 0;
+
+  width: 70px;
+  height: 1px;
+}
+
+
+.hm-circuit-corner::after {
+  top: 0;
+  left: 0;
+
+  width: 1px;
+  height: 70px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--hm-cyan),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   GLASS EFFECT
+   ========================================================= */
+
+.hm-effect-glass {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(20, 42, 67, 0.34),
+      rgba(3, 10, 20, 0.62)
+    );
+
+  border: 1px solid rgba(126, 170, 220, 0.13);
+
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.035),
+    0 25px 80px rgba(0, 0, 0, 0.28);
+
+  backdrop-filter:
+    blur(20px)
+    saturate(130%);
+
+  -webkit-backdrop-filter:
+    blur(20px)
+    saturate(130%);
+}
+
+
+.hm-effect-glass::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  border-radius: inherit;
+
+  background:
+    linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.045),
+      transparent 22%,
+      transparent 78%,
+      rgba(0, 217, 255, 0.025)
+    );
+}
+
+
+/* =========================================================
+   GLASS BORDER GLOW
+   ========================================================= */
+
+.hm-glass-glow {
+  position: relative;
+
+  border: 1px solid rgba(0, 217, 255, 0.16);
+
+  box-shadow:
+    inset 0 0 30px rgba(0, 217, 255, 0.025),
+    0 0 35px rgba(0, 217, 255, 0.045);
+}
+
+
+.hm-glass-glow::before {
+  content: "";
+
+  position: absolute;
+
+  inset: -1px;
+
+  border-radius: inherit;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      110deg,
+      transparent 25%,
+      rgba(0, 217, 255, 0.5),
+      transparent 75%
+    );
+
+  background-size: 200% 100%;
+
+  opacity: 0;
+
+  transition:
+    opacity var(--hm-transition-normal);
+
+  z-index: -1;
+}
+
+
+.hm-glass-glow:hover::before {
+  opacity: 0.35;
+
+  animation:
+    hm-border-flow 2.2s linear infinite;
+}
+
+
+/* =========================================================
+   HOLOGRAPHIC PANEL
+   ========================================================= */
+
+.hm-hologram {
+  position: relative;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(0, 217, 255, 0.055),
+      rgba(22, 119, 255, 0.025) 40%,
+      rgba(217, 173, 69, 0.025)
+    );
+
+  border: 1px solid rgba(0, 217, 255, 0.14);
+
+  box-shadow:
+    inset 0 0 45px rgba(0, 217, 255, 0.025),
+    0 25px 80px rgba(0, 0, 0, 0.35);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  overflow: hidden;
+}
+
+
+.hm-hologram::before {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      transparent 0,
+      transparent 4px,
+      rgba(0, 217, 255, 0.018) 5px
+    );
+
+  pointer-events: none;
+}
+
+
+.hm-hologram::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 50%;
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.045),
+      transparent
+    );
+
+  transform: skewX(-18deg);
+
+  pointer-events: none;
+
+  transition: left 1s ease;
+}
+
+
+.hm-hologram:hover::after {
+  left: 150%;
+}
+
+
+/* =========================================================
+   GOLD TECH GLOW
+   ========================================================= */
+
+.hm-gold-glow {
+  text-shadow:
+    0 0 8px rgba(217, 173, 69, 0.45),
+    0 0 24px rgba(217, 173, 69, 0.18);
+}
+
+
+.hm-blue-glow {
+  text-shadow:
+    0 0 8px rgba(22, 119, 255, 0.5),
+    0 0 24px rgba(22, 119, 255, 0.2);
+}
+
+
+.hm-cyan-glow {
+  text-shadow:
+    0 0 8px rgba(0, 217, 255, 0.55),
+    0 0 25px rgba(0, 217, 255, 0.22);
+}
+
+
+/* =========================================================
+   DATA PARTICLES
+   ========================================================= */
+
+.hm-particles {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+
+  pointer-events: none;
+}
+
+
+.hm-particle {
+  position: absolute;
+
+  width: 2px;
+  height: 2px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 5px rgba(0, 217, 255, 0.85),
+    0 0 14px rgba(0, 217, 255, 0.35);
+
+  animation:
+    hm-particle 5s ease-in-out infinite;
+}
+
+
+.hm-particle--blue {
+  background: var(--hm-blue-bright);
+
+  box-shadow:
+    0 0 5px rgba(22, 119, 255, 0.85),
+    0 0 14px rgba(22, 119, 255, 0.35);
+}
+
+
+.hm-particle--gold {
+  background: var(--hm-gold-bright);
+
+  box-shadow:
+    0 0 5px rgba(217, 173, 69, 0.85),
+    0 0 14px rgba(217, 173, 69, 0.35);
+}
+
+
+/* =========================================================
+   DATA LABEL
+   ========================================================= */
+
+.hm-data-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+
+  padding: 0.42rem 0.7rem;
+
+  border: 1px solid rgba(0, 217, 255, 0.14);
+  border-radius: 5px;
+
+  background: rgba(2, 10, 20, 0.62);
+
+  color: rgba(216, 228, 242, 0.72);
+
+  font-family: var(--hm-font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  backdrop-filter: blur(10px);
+}
+
+
+.hm-data-label::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.7);
+}
+
+
+/* =========================================================
+   HOLOGRAPHIC CROSSHAIR
+   ========================================================= */
+
+.hm-crosshair {
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+
+  opacity: 0.45;
+
+  pointer-events: none;
+}
+
+
+.hm-crosshair::before,
+.hm-crosshair::after {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  background: rgba(0, 217, 255, 0.6);
+
+  transform: translate(-50%, -50%);
+}
+
+
+.hm-crosshair::before {
+  width: 100%;
+  height: 1px;
+}
+
+
+.hm-crosshair::after {
+  width: 1px;
+  height: 100%;
+}
+
+
+.hm-crosshair {
+  border:
+    1px solid rgba(0, 217, 255, 0.18);
+
+  border-radius: 50%;
+}
+
+
+/* =========================================================
+   FOCUS RING
+   ========================================================= */
+
+.hm-focus-ring {
+  position: absolute;
+
+  width: 150px;
+  height: 150px;
+
+  border:
+    1px solid rgba(0, 217, 255, 0.20);
+
+  border-radius: 50%;
+
+  box-shadow:
+    0 0 40px rgba(0, 217, 255, 0.06),
+    inset 0 0 40px rgba(0, 217, 255, 0.025);
+
+  pointer-events: none;
+}
+
+
+.hm-focus-ring::before,
+.hm-focus-ring::after {
+  content: "";
+
+  position: absolute;
+
+  inset: 15%;
+
+  border:
+    1px dashed rgba(22, 119, 255, 0.20);
+
+  border-radius: 50%;
+
+  animation:
+    hm-rotate 18s linear infinite;
+}
+
+
+.hm-focus-ring::after {
+  inset: 28%;
+
+  border-style: solid;
+
+  border-color:
+    rgba(217, 173, 69, 0.15)
+    transparent
+    rgba(217, 173, 69, 0.15)
+    transparent;
+
+  animation:
+    hm-rotate-reverse 12s linear infinite;
+}
+
+
+/* =========================================================
+   EDGE LIGHT
+   ========================================================= */
+
+.hm-edge-light {
+  position: absolute;
+
+  pointer-events: none;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--hm-cyan),
+      transparent
+    );
+
+  box-shadow:
+    0 0 12px rgba(0, 217, 255, 0.6),
+    0 0 30px rgba(0, 217, 255, 0.18);
+}
+
+
+.hm-edge-light--top {
+  top: 0;
+  left: 10%;
+
+  width: 80%;
+  height: 1px;
+}
+
+
+.hm-edge-light--bottom {
+  right: 10%;
+  bottom: 0;
+
+  width: 80%;
+  height: 1px;
+}
+
+
+.hm-edge-light--left {
+  top: 10%;
+  left: 0;
+
+  width: 1px;
+  height: 80%;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      var(--hm-cyan),
+      transparent
+    );
+}
+
+
+.hm-edge-light--right {
+  top: 10%;
+  right: 0;
+
+  width: 1px;
+  height: 80%;
+
+  background:
+    linear-gradient(
+      180deg,
+      transparent,
+      var(--hm-cyan),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   RESPONSIVE EFFECT REDUCTION
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hm-grid {
+    background-size: 44px 44px;
+    opacity: 0.32;
+  }
+
+  .hm-grid--fine {
+    background-size: 20px 20px;
+    opacity: 0.22;
+  }
+
+  .hm-grid-perspective {
+    opacity: 0.3;
+  }
+
+  .hm-pcb-background {
+    opacity: 0.24;
+  }
+
+  .hm-scanlines {
+    opacity: 0.18;
+  }
+
+  .hm-noise {
+    opacity: 0.02;
+  }
+
+  .hm-glow-orb {
+    width: 160px;
+    height: 160px;
+
+    filter: blur(28px);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-scan-beam,
+  .hm-particle,
+  .hm-circuit-line::after,
+  .hm-neon-point::before,
+  .hm-neon-point::after,
+  .hm-circuit-node::after,
+  .hm-focus-ring::before,
+  .hm-focus-ring::after,
+  .hm-glow-orb {
+    animation: none;
+  }
+}

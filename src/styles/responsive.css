@@ -1,0 +1,902 @@
+/* =========================================================
+   HeMinexTechnology
+   Responsive System
+   ========================================================= */
+
+
+/* =========================================================
+   LARGE DESKTOP
+   1536px+
+   ========================================================= */
+
+@media (min-width: 1536px) {
+  :root {
+    --hm-page-padding: clamp(3rem, 5vw, 6rem);
+  }
+
+  .hm-container {
+    max-width: 1400px;
+  }
+
+  .hm-container-wide {
+    max-width: 1600px;
+  }
+
+  .hm-section {
+    padding-block: clamp(7rem, 9vw, 11rem);
+  }
+}
+
+
+/* =========================================================
+   DESKTOP
+   1280px — 1535px
+   ========================================================= */
+
+@media (max-width: 1535px) {
+  :root {
+    --hm-navbar-height: 78px;
+  }
+
+  .hm-section-title {
+    letter-spacing: -0.04em;
+  }
+}
+
+
+/* =========================================================
+   SMALL DESKTOP / LARGE TABLET
+   1024px — 1279px
+   ========================================================= */
+
+@media (max-width: 1279px) {
+  :root {
+    --hm-page-padding: clamp(2rem, 4vw, 3.5rem);
+
+    --hm-heading-xl: clamp(3rem, 7vw, 6rem);
+    --hm-heading-lg: clamp(2.6rem, 6vw, 4.8rem);
+  }
+
+  .hm-section {
+    padding-block: clamp(5rem, 9vw, 8rem);
+  }
+
+  .hm-section-header {
+    max-width: 760px;
+  }
+
+  .hm-grid {
+    background-size: 54px 54px;
+  }
+
+  .hm-grid-perspective {
+    height: 58%;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   768px — 1023px
+   ========================================================= */
+
+@media (max-width: 1023px) {
+  :root {
+    --hm-navbar-height: 72px;
+
+    --hm-page-padding: clamp(1.5rem, 4vw, 2.5rem);
+
+    --hm-heading-xl: clamp(2.8rem, 8vw, 5.5rem);
+    --hm-heading-lg: clamp(2.4rem, 6vw, 4.2rem);
+    --hm-heading-md: clamp(2rem, 5vw, 3.2rem);
+  }
+
+  /* -------------------------------------------------------
+     CONTAINERS
+     ------------------------------------------------------- */
+
+  .hm-container,
+  .hm-container-wide {
+    width: calc(100% - (var(--hm-page-padding) * 2));
+  }
+
+
+  /* -------------------------------------------------------
+     SECTIONS
+     ------------------------------------------------------- */
+
+  .hm-section {
+    padding-block: clamp(4.5rem, 9vw, 7rem);
+  }
+
+  .hm-section--large {
+    padding-block: clamp(6rem, 12vw, 9rem);
+  }
+
+
+  /* -------------------------------------------------------
+     SECTION HEADER
+     ------------------------------------------------------- */
+
+  .hm-section-header {
+    max-width: 700px;
+    margin-bottom: 3.5rem;
+  }
+
+  .hm-section-description {
+    max-width: 600px;
+  }
+
+
+  /* -------------------------------------------------------
+     BUTTONS
+     ------------------------------------------------------- */
+
+  .hm-button--lg {
+    min-height: 54px;
+  }
+
+
+  /* -------------------------------------------------------
+     GRID
+     ------------------------------------------------------- */
+
+  .hm-grid {
+    background-size: 48px 48px;
+    opacity: 0.35;
+  }
+
+  .hm-grid--fine {
+    background-size: 20px 20px;
+  }
+
+  .hm-grid-perspective {
+    height: 52%;
+    bottom: -10%;
+  }
+
+
+  /* -------------------------------------------------------
+     ATMOSPHERE
+     ------------------------------------------------------- */
+
+  .hm-atmosphere::before,
+  .hm-atmosphere::after {
+    filter: blur(70px);
+  }
+
+
+  /* -------------------------------------------------------
+     GLASS
+     ------------------------------------------------------- */
+
+  .hm-effect-glass {
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+  }
+
+
+  /* -------------------------------------------------------
+     ORBIT
+     ------------------------------------------------------- */
+
+  :root {
+    --hm-planet-size: clamp(250px, 42vw, 430px);
+    --hm-orbit-size: clamp(340px, 58vw, 620px);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   481px — 767px
+   ========================================================= */
+
+@media (max-width: 767px) {
+  :root {
+    --hm-navbar-height: 68px;
+
+    --hm-page-padding: 1.25rem;
+
+    --hm-heading-xl: clamp(2.55rem, 12vw, 4.4rem);
+    --hm-heading-lg: clamp(2.25rem, 10vw, 3.5rem);
+    --hm-heading-md: clamp(1.9rem, 8vw, 2.8rem);
+    --hm-heading-sm: clamp(1.5rem, 6vw, 2.1rem);
+
+    --hm-planet-size: clamp(230px, 72vw, 360px);
+    --hm-orbit-size: clamp(300px, 94vw, 470px);
+  }
+
+
+  /* -------------------------------------------------------
+     BODY
+     ------------------------------------------------------- */
+
+  body {
+    font-size: 15px;
+  }
+
+
+  /* -------------------------------------------------------
+     CONTAINERS
+     ------------------------------------------------------- */
+
+  .hm-container,
+  .hm-container-wide {
+    width: calc(100% - 2.5rem);
+  }
+
+
+  /* -------------------------------------------------------
+     SECTIONS
+     ------------------------------------------------------- */
+
+  .hm-section {
+    padding-block: 4.5rem;
+  }
+
+  .hm-section--tight {
+    padding-block: 3.5rem;
+  }
+
+  .hm-section--large {
+    padding-block: 5.5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     SECTION HEADER
+     ------------------------------------------------------- */
+
+  .hm-section-header {
+    margin-bottom: 2.75rem;
+  }
+
+  .hm-section-eyebrow {
+    margin-bottom: 1rem;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+  }
+
+  .hm-section-eyebrow::before {
+    width: 20px;
+  }
+
+  .hm-section-title {
+    letter-spacing: -0.035em;
+  }
+
+  .hm-section-description {
+    margin-top: 1.15rem;
+
+    font-size: 0.94rem;
+    line-height: 1.65;
+  }
+
+
+  /* -------------------------------------------------------
+     BUTTONS
+     ------------------------------------------------------- */
+
+  .hm-button {
+    min-height: 48px;
+    padding-inline: 1.15rem;
+
+    font-size: 0.82rem;
+  }
+
+  .hm-button--lg {
+    min-height: 52px;
+    padding-inline: 1.35rem;
+  }
+
+
+  /* -------------------------------------------------------
+     GLASS
+     ------------------------------------------------------- */
+
+  .hm-glass,
+  .hm-glass-heavy {
+    border-radius: var(--hm-radius-md);
+  }
+
+  .hm-effect-glass {
+    backdrop-filter: blur(13px);
+    -webkit-backdrop-filter: blur(13px);
+  }
+
+
+  /* -------------------------------------------------------
+     GRID
+     ------------------------------------------------------- */
+
+  .hm-grid {
+    background-size: 42px 42px;
+    opacity: 0.27;
+  }
+
+  .hm-grid--fine {
+    background-size: 18px 18px;
+    opacity: 0.18;
+  }
+
+  .hm-grid--large {
+    background-size: 90px 90px;
+    opacity: 0.2;
+  }
+
+
+  /* -------------------------------------------------------
+     PCB
+     ------------------------------------------------------- */
+
+  .hm-pcb-background {
+    background-size: auto 100%;
+    opacity: 0.2;
+  }
+
+  .hm-pcb-vignette {
+    background:
+      radial-gradient(
+        ellipse at center,
+        transparent 15%,
+        rgba(3, 7, 18, 0.35) 55%,
+        rgba(3, 7, 18, 0.88) 100%
+      );
+  }
+
+
+  /* -------------------------------------------------------
+     ATMOSPHERE
+     ------------------------------------------------------- */
+
+  .hm-atmosphere::before,
+  .hm-atmosphere::after {
+    width: 500px;
+    height: 500px;
+
+    filter: blur(60px);
+  }
+
+
+  /* -------------------------------------------------------
+     SCANLINES
+     ------------------------------------------------------- */
+
+  .hm-scanlines {
+    opacity: 0.16;
+  }
+
+  .hm-scan-beam {
+    opacity: 0.35;
+  }
+
+
+  /* -------------------------------------------------------
+     NOISE
+     ------------------------------------------------------- */
+
+  .hm-noise {
+    opacity: 0.018;
+  }
+
+
+  /* -------------------------------------------------------
+     ORBIT
+     ------------------------------------------------------- */
+
+  .hm-grid-perspective {
+    height: 42%;
+    bottom: -5%;
+
+    opacity: 0.22;
+  }
+
+  .hm-focus-ring {
+    width: 110px;
+    height: 110px;
+  }
+
+
+  /* -------------------------------------------------------
+     DECORATIONS
+     ------------------------------------------------------- */
+
+  .hm-circuit-corner {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hm-circuit-corner::before {
+    width: 48px;
+  }
+
+  .hm-circuit-corner::after {
+    height: 48px;
+  }
+
+  .hm-crosshair {
+    width: 42px;
+    height: 42px;
+  }
+
+
+  /* -------------------------------------------------------
+     DATA LABEL
+     ------------------------------------------------------- */
+
+  .hm-data-label {
+    padding: 0.35rem 0.55rem;
+
+    font-size: 0.56rem;
+  }
+
+
+  /* -------------------------------------------------------
+     HOVER
+     ------------------------------------------------------- */
+
+  /*
+     Reduce large hover movement on touch devices.
+  */
+
+  .hm-hover-lift:hover {
+    transform: none;
+  }
+
+  .hm-hover-scale:hover {
+    transform: none;
+  }
+
+  .hm-button:hover {
+    transform: translateY(-2px);
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   361px — 480px
+   ========================================================= */
+
+@media (max-width: 480px) {
+  :root {
+    --hm-page-padding: 1rem;
+
+    --hm-heading-xl: clamp(2.35rem, 13vw, 3.5rem);
+    --hm-heading-lg: clamp(2rem, 10vw, 3rem);
+    --hm-heading-md: clamp(1.75rem, 8vw, 2.45rem);
+
+    --hm-radius-lg: 17px;
+    --hm-radius-xl: 22px;
+  }
+
+
+  /* -------------------------------------------------------
+     CONTAINERS
+     ------------------------------------------------------- */
+
+  .hm-container,
+  .hm-container-wide {
+    width: calc(100% - 2rem);
+  }
+
+
+  /* -------------------------------------------------------
+     SECTIONS
+     ------------------------------------------------------- */
+
+  .hm-section {
+    padding-block: 4rem;
+  }
+
+  .hm-section--large {
+    padding-block: 5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     TYPOGRAPHY
+     ------------------------------------------------------- */
+
+  .hm-section-eyebrow {
+    font-size: 0.6rem;
+  }
+
+  .hm-section-description {
+    font-size: 0.9rem;
+  }
+
+
+  /* -------------------------------------------------------
+     BUTTONS
+     ------------------------------------------------------- */
+
+  .hm-button {
+    width: 100%;
+  }
+
+  .hm-button--sm {
+    width: auto;
+  }
+
+
+  /* -------------------------------------------------------
+     GRID
+     ------------------------------------------------------- */
+
+  .hm-grid {
+    background-size: 36px 36px;
+  }
+
+  .hm-grid--fine {
+    background-size: 16px 16px;
+  }
+
+
+  /* -------------------------------------------------------
+     PCB
+     ------------------------------------------------------- */
+
+  .hm-pcb-background {
+    opacity: 0.16;
+  }
+
+
+  /* -------------------------------------------------------
+     GLASS
+     ------------------------------------------------------- */
+
+  .hm-effect-glass {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+
+  /* -------------------------------------------------------
+     ORBIT
+     ------------------------------------------------------- */
+
+  :root {
+    --hm-planet-size: clamp(210px, 76vw, 320px);
+    --hm-orbit-size: clamp(270px, 100vw, 410px);
+  }
+}
+
+
+/* =========================================================
+   EXTRA SMALL MOBILE
+   320px — 360px
+   ========================================================= */
+
+@media (max-width: 360px) {
+  :root {
+    --hm-page-padding: 0.85rem;
+
+    --hm-heading-xl: 2.25rem;
+    --hm-heading-lg: 1.95rem;
+    --hm-heading-md: 1.7rem;
+  }
+
+
+  .hm-container,
+  .hm-container-wide {
+    width: calc(100% - 1.7rem);
+  }
+
+
+  .hm-section {
+    padding-block: 3.5rem;
+  }
+
+
+  .hm-section-eyebrow {
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
+  }
+
+
+  .hm-button {
+    min-height: 46px;
+    padding-inline: 1rem;
+
+    font-size: 0.78rem;
+  }
+
+
+  .hm-grid {
+    background-size: 32px 32px;
+    opacity: 0.22;
+  }
+
+
+  .hm-pcb-background {
+    opacity: 0.12;
+  }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+   ========================================================= */
+
+@media (max-width: 900px) and (orientation: landscape) {
+  .hm-section {
+    padding-block: 4rem;
+  }
+}
+
+
+/* =========================================================
+   TOUCH DEVICES
+   ========================================================= */
+
+@media (hover: none) and (pointer: coarse) {
+  .hm-button:hover {
+    transform: none;
+  }
+
+  .hm-card:hover {
+    transform: none;
+  }
+
+  .hm-hover-lift:hover,
+  .hm-hover-scale:hover {
+    transform: none;
+  }
+
+  .hm-hologram:hover::after {
+    left: -100%;
+  }
+
+  .hm-glass-glow:hover::before {
+    opacity: 0;
+    animation: none;
+  }
+}
+
+
+/* =========================================================
+   HIGH-DPI SCREENS
+   ========================================================= */
+
+@media (min-resolution: 2dppx) {
+  .hm-scanlines {
+    opacity: 0.24;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hm-grid-perspective,
+  .hm-pcb-background,
+  .hm-atmosphere,
+  .hm-grid,
+  .hm-scanlines,
+  .hm-scan-beam,
+  .hm-noise {
+    animation: none !important;
+  }
+
+  .hm-button,
+  .hm-card,
+  .hm-hover-lift,
+  .hm-hover-scale {
+    transition: none !important;
+  }
+
+  .hm-button:hover,
+  .hm-card:hover,
+  .hm-hover-lift:hover,
+  .hm-hover-scale:hover {
+    transform: none !important;
+  }
+}
+
+
+/* =========================================================
+   SAFE AREA — MOBILE DEVICES
+   ========================================================= */
+
+@supports (padding: env(safe-area-inset-top)) {
+  .hm-safe-area-top {
+    padding-top:
+      max(1rem, env(safe-area-inset-top));
+  }
+
+  .hm-safe-area-bottom {
+    padding-bottom:
+      max(1rem, env(safe-area-inset-bottom));
+  }
+
+  .hm-safe-area-left {
+    padding-left:
+      max(1rem, env(safe-area-inset-left));
+  }
+
+  .hm-safe-area-right {
+    padding-right:
+      max(1rem, env(safe-area-inset-right));
+  }
+}
+/* =========================================================
+   REDUCED MOTION
+   Accessibility-first motion fallback
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  /*
+  ---------------------------------------------------------
+  GLOBAL MOTION RESET
+  ---------------------------------------------------------
+  */
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    animation-delay: 0ms !important;
+
+    scroll-behavior: auto !important;
+
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  IMPORTANT:
+  NEVER hide primary content for animation.
+  
+  If GSAP hasn't initialized yet, content should still
+  exist and remain readable.
+  ---------------------------------------------------------
+  */
+
+  .hero__content,
+  .hero__planet,
+  .hero__orbit-system,
+  .hero__atmosphere,
+
+  .services__header,
+  .service-planet,
+  .service-detail,
+  .service-detail__inner,
+
+  .service-detail__content,
+  .service-detail__visual,
+  .service-detail__actions,
+
+  .process,
+  .process__content,
+  .process__item,
+
+  .projects,
+  .projects__content,
+
+  .cta,
+  .cta__content {
+    opacity: 1 !important;
+    visibility: visible !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  REMOVE DECORATIVE TRANSFORMS
+  ---------------------------------------------------------
+  
+  This prevents content from remaining shifted off-screen
+  if JavaScript has not initialized yet.
+  ---------------------------------------------------------
+  */
+
+  .hero__content,
+  .hero__planet,
+  .hero__orbit-system,
+  .hero__atmosphere,
+
+  .service-planet,
+  .service-detail__inner,
+
+  .process__item,
+  .project-card,
+  .cta__content {
+    transform: none !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  DISABLE CONTINUOUS DECORATIVE ANIMATIONS
+  ---------------------------------------------------------
+  */
+
+  .hero__planet,
+  .hero__orbit,
+  .hero__orbit-ring,
+  .hero__stars,
+  .hero__particles,
+
+  .service-planet,
+  .service-planet__halo,
+  .service-planet__orbit,
+  .service-planet__pulse,
+
+  .circuit-path,
+  .circuit-path__line,
+
+  .scanline,
+  .noise,
+  .floating,
+  .pulse,
+  .glow-pulse {
+    animation: none !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  CIRCUIT PATH
+  ---------------------------------------------------------
+  
+  Don't make users wait for a scroll-driven drawing
+  animation to see the actual connection.
+  ---------------------------------------------------------
+  */
+
+  .circuit-path__line {
+    stroke-dasharray: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  HOVER / FOCUS TRANSITIONS
+  ---------------------------------------------------------
+  
+  Keep interaction functional without animated movement.
+  ---------------------------------------------------------
+  */
+
+  button,
+  a,
+  .service-card,
+  .service-planet,
+  .project-card {
+    transition: none !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  DECORATIVE PARALLAX / DEPTH
+  ---------------------------------------------------------
+  */
+
+  [data-parallax],
+  [data-speed],
+  [data-scroll-speed] {
+    transform: none !important;
+  }
+
+  /*
+  ---------------------------------------------------------
+  STICKY / PINNED CINEMATIC ELEMENTS
+  ---------------------------------------------------------
+  
+  Don't force decorative elements to behave like a
+  cinematic scene for reduced-motion users.
+  ---------------------------------------------------------
+  */
+
+  .hero__planet,
+  .hero__orbit-system {
+    position: relative;
+  }
+}

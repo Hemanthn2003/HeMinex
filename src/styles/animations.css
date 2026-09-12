@@ -1,0 +1,880 @@
+/* =========================================================
+   HeMinexTechnology
+   Global Animation System
+   ========================================================= */
+
+
+/* =========================================================
+   KEYFRAMES — BASIC
+   ========================================================= */
+
+@keyframes hm-fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+@keyframes hm-fade-up {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 35px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes hm-fade-down {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -35px, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes hm-fade-left {
+  from {
+    opacity: 0;
+    transform: translate3d(35px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+@keyframes hm-fade-right {
+  from {
+    opacity: 0;
+    transform: translate3d(-35px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+
+/* =========================================================
+   SCALE REVEAL
+   ========================================================= */
+
+@keyframes hm-scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.88);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+
+@keyframes hm-scale-up {
+  from {
+    opacity: 0;
+    transform: scale(0.75) translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+
+/* =========================================================
+   FLOATING
+   ========================================================= */
+
+@keyframes hm-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -12px, 0);
+  }
+}
+
+
+@keyframes hm-float-small {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -6px, 0);
+  }
+}
+
+
+@keyframes hm-float-large {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  50% {
+    transform: translate3d(0, -22px, 0);
+  }
+}
+
+
+/* =========================================================
+   PLANET / ORBIT
+   ========================================================= */
+
+@keyframes hm-orbit-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes hm-orbit-spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+@keyframes hm-planet-float {
+  0%,
+  100% {
+    transform:
+      translate3d(0, 0, 0)
+      rotate(0deg);
+  }
+
+  50% {
+    transform:
+      translate3d(0, -14px, 0)
+      rotate(1deg);
+  }
+}
+
+
+/* =========================================================
+   PULSING
+   ========================================================= */
+
+@keyframes hm-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+
+  50% {
+    opacity: 0;
+    transform: scale(1.45);
+  }
+}
+
+
+@keyframes hm-pulse-soft {
+  0%,
+  100% {
+    opacity: 0.45;
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+
+@keyframes hm-pulse-glow {
+  0%,
+  100% {
+    filter:
+      drop-shadow(0 0 3px rgba(0, 217, 255, 0.25));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 12px rgba(0, 217, 255, 0.75));
+  }
+}
+
+
+/* =========================================================
+   NEON GLOW
+   ========================================================= */
+
+@keyframes hm-neon-blue {
+  0%,
+  100% {
+    opacity: 0.65;
+    box-shadow:
+      0 0 5px rgba(22, 119, 255, 0.25),
+      0 0 15px rgba(22, 119, 255, 0.12);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px rgba(22, 119, 255, 0.75),
+      0 0 35px rgba(22, 119, 255, 0.30);
+  }
+}
+
+
+@keyframes hm-neon-cyan {
+  0%,
+  100% {
+    opacity: 0.65;
+    box-shadow:
+      0 0 5px rgba(0, 217, 255, 0.25),
+      0 0 15px rgba(0, 217, 255, 0.12);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px rgba(0, 217, 255, 0.80),
+      0 0 35px rgba(0, 217, 255, 0.32);
+  }
+}
+
+
+@keyframes hm-neon-gold {
+  0%,
+  100% {
+    opacity: 0.65;
+    box-shadow:
+      0 0 5px rgba(217, 173, 69, 0.25),
+      0 0 15px rgba(217, 173, 69, 0.12);
+  }
+
+  50% {
+    opacity: 1;
+    box-shadow:
+      0 0 10px rgba(217, 173, 69, 0.75),
+      0 0 35px rgba(217, 173, 69, 0.30);
+  }
+}
+
+
+/* =========================================================
+   SCANNING EFFECT
+   ========================================================= */
+
+@keyframes hm-scan {
+  0% {
+    transform: translateY(-120%);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(120%);
+    opacity: 0;
+  }
+}
+
+
+@keyframes hm-scan-horizontal {
+  0% {
+    transform: translateX(-120%);
+    opacity: 0;
+  }
+
+  15% {
+    opacity: 1;
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateX(120%);
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   CIRCUIT LIGHT
+   ========================================================= */
+
+@keyframes hm-circuit-run {
+  0% {
+    stroke-dashoffset: 1200;
+    opacity: 0;
+  }
+
+  10% {
+    opacity: 1;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0;
+  }
+}
+
+
+@keyframes hm-circuit-pulse {
+  0% {
+    opacity: 0.15;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  60% {
+    opacity: 0.35;
+  }
+
+  100% {
+    opacity: 0.15;
+  }
+}
+
+
+/* =========================================================
+   LIGHT PARTICLES
+   ========================================================= */
+
+@keyframes hm-particle {
+  0% {
+    opacity: 0;
+    transform:
+      translate3d(0, 20px, 0)
+      scale(0.4);
+  }
+
+  20% {
+    opacity: 0.8;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform:
+      translate3d(0, -90px, 0)
+      scale(1);
+  }
+}
+
+
+/* =========================================================
+   ROTATION
+   ========================================================= */
+
+@keyframes hm-rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+
+@keyframes hm-rotate-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+
+/* =========================================================
+   TEXT REVEAL
+   ========================================================= */
+
+@keyframes hm-text-reveal {
+  from {
+    opacity: 0;
+    transform:
+      translateY(100%)
+      skewY(4deg);
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      translateY(0)
+      skewY(0);
+  }
+}
+
+
+/* =========================================================
+   BLUR REVEAL
+   ========================================================= */
+
+@keyframes hm-blur-reveal {
+  from {
+    opacity: 0;
+    filter: blur(14px);
+    transform: translateY(15px);
+  }
+
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+  }
+}
+
+
+/* =========================================================
+   BORDER FLOW
+   ========================================================= */
+
+@keyframes hm-border-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+
+/* =========================================================
+   ENERGY WAVE
+   ========================================================= */
+
+@keyframes hm-energy-wave {
+  0% {
+    transform: scaleX(0);
+    transform-origin: left center;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    transform: scaleX(1);
+    transform-origin: left center;
+    opacity: 0;
+  }
+}
+
+
+/* =========================================================
+   DATA STREAM
+   ========================================================= */
+
+@keyframes hm-data-stream {
+  from {
+    transform: translateY(-100%);
+  }
+
+  to {
+    transform: translateY(100%);
+  }
+}
+
+
+/* =========================================================
+   GLITCH
+   ========================================================= */
+
+@keyframes hm-glitch-x {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-2px);
+  }
+
+  40% {
+    transform: translateX(2px);
+  }
+
+  60% {
+    transform: translateX(-1px);
+  }
+
+  80% {
+    transform: translateX(1px);
+  }
+}
+
+
+/* =========================================================
+   SHIMMER
+   ========================================================= */
+
+@keyframes hm-shimmer {
+  0% {
+    background-position:
+      -200% 0;
+  }
+
+  100% {
+    background-position:
+      200% 0;
+  }
+}
+
+
+/* =========================================================
+   ANIMATION UTILITY CLASSES
+   ========================================================= */
+
+.hm-animate-fade-in {
+  animation:
+    hm-fade-in 0.8s var(--hm-ease-out) both;
+}
+
+
+.hm-animate-fade-up {
+  animation:
+    hm-fade-up 0.8s var(--hm-ease-out) both;
+}
+
+
+.hm-animate-fade-down {
+  animation:
+    hm-fade-down 0.8s var(--hm-ease-out) both;
+}
+
+
+.hm-animate-fade-left {
+  animation:
+    hm-fade-left 0.8s var(--hm-ease-out) both;
+}
+
+
+.hm-animate-fade-right {
+  animation:
+    hm-fade-right 0.8s var(--hm-ease-out) both;
+}
+
+
+.hm-animate-scale {
+  animation:
+    hm-scale-in 0.9s var(--hm-ease-out) both;
+}
+
+
+.hm-animate-float {
+  animation:
+    hm-float 4s ease-in-out infinite;
+}
+
+
+.hm-animate-float-small {
+  animation:
+    hm-float-small 3s ease-in-out infinite;
+}
+
+
+.hm-animate-float-large {
+  animation:
+    hm-float-large 6s ease-in-out infinite;
+}
+
+
+.hm-animate-orbit {
+  animation:
+    hm-orbit-spin 20s linear infinite;
+}
+
+
+.hm-animate-orbit-reverse {
+  animation:
+    hm-orbit-spin-reverse 26s linear infinite;
+}
+
+
+.hm-animate-pulse {
+  animation:
+    hm-pulse-soft 2s ease-in-out infinite;
+}
+
+
+.hm-animate-neon-blue {
+  animation:
+    hm-neon-blue 2.5s ease-in-out infinite;
+}
+
+
+.hm-animate-neon-cyan {
+  animation:
+    hm-neon-cyan 2.5s ease-in-out infinite;
+}
+
+
+.hm-animate-neon-gold {
+  animation:
+    hm-neon-gold 2.5s ease-in-out infinite;
+}
+
+
+.hm-animate-scan {
+  animation:
+    hm-scan 3.5s ease-in-out infinite;
+}
+
+
+.hm-animate-scan-horizontal {
+  animation:
+    hm-scan-horizontal 4s ease-in-out infinite;
+}
+
+
+.hm-animate-rotate {
+  animation:
+    hm-rotate 20s linear infinite;
+}
+
+
+.hm-animate-rotate-reverse {
+  animation:
+    hm-rotate-reverse 25s linear infinite;
+}
+
+
+.hm-animate-blur-reveal {
+  animation:
+    hm-blur-reveal 1s var(--hm-ease-out) both;
+}
+
+
+/* =========================================================
+   STAGGER DELAYS
+   ========================================================= */
+
+.hm-delay-1 {
+  animation-delay: 100ms;
+}
+
+.hm-delay-2 {
+  animation-delay: 200ms;
+}
+
+.hm-delay-3 {
+  animation-delay: 300ms;
+}
+
+.hm-delay-4 {
+  animation-delay: 400ms;
+}
+
+.hm-delay-5 {
+  animation-delay: 500ms;
+}
+
+.hm-delay-6 {
+  animation-delay: 600ms;
+}
+
+.hm-delay-7 {
+  animation-delay: 700ms;
+}
+
+.hm-delay-8 {
+  animation-delay: 800ms;
+}
+
+
+/* =========================================================
+   INITIAL GSAP STATE HELPERS
+   ========================================================= */
+
+/*
+   These classes intentionally do not animate themselves.
+
+   GSAP will take control of these elements when we build
+   the actual sections.
+*/
+
+.hm-gsap-hidden {
+  opacity: 0;
+}
+
+
+.hm-gsap-up {
+  opacity: 0;
+  transform: translateY(50px);
+}
+
+
+.hm-gsap-left {
+  opacity: 0;
+  transform: translateX(-50px);
+}
+
+
+.hm-gsap-right {
+  opacity: 0;
+  transform: translateX(50px);
+}
+
+
+.hm-gsap-scale {
+  opacity: 0;
+  transform: scale(0.85);
+}
+
+
+/* =========================================================
+   HOVER MOTION
+   ========================================================= */
+
+.hm-hover-lift {
+  transition:
+    transform var(--hm-transition-normal),
+    box-shadow var(--hm-transition-normal);
+}
+
+.hm-hover-lift:hover {
+  transform: translateY(-8px);
+}
+
+
+.hm-hover-scale {
+  transition:
+    transform var(--hm-transition-normal);
+}
+
+.hm-hover-scale:hover {
+  transform: scale(1.035);
+}
+
+
+.hm-hover-glow {
+  transition:
+    filter var(--hm-transition-normal),
+    box-shadow var(--hm-transition-normal);
+}
+
+.hm-hover-glow:hover {
+  filter:
+    drop-shadow(0 0 12px rgba(0, 217, 255, 0.3));
+}
+
+
+/* =========================================================
+   MOBILE PERFORMANCE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hm-animate-orbit,
+  .hm-animate-orbit-reverse {
+    animation-duration: 32s;
+  }
+
+  .hm-animate-float-large {
+    animation-duration: 7s;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-animate-fade-in,
+  .hm-animate-fade-up,
+  .hm-animate-fade-down,
+  .hm-animate-fade-left,
+  .hm-animate-fade-right,
+  .hm-animate-scale,
+  .hm-animate-float,
+  .hm-animate-float-small,
+  .hm-animate-float-large,
+  .hm-animate-orbit,
+  .hm-animate-orbit-reverse,
+  .hm-animate-pulse,
+  .hm-animate-neon-blue,
+  .hm-animate-neon-cyan,
+  .hm-animate-neon-gold,
+  .hm-animate-scan,
+  .hm-animate-scan-horizontal,
+  .hm-animate-rotate,
+  .hm-animate-rotate-reverse,
+  .hm-animate-blur-reveal {
+    animation: none;
+  }
+}
+/* =========================================================
+   REDUCED MOTION OVERRIDE
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .animate,
+  .animated,
+  .floating,
+  .pulse,
+  .glow,
+  .glow-pulse,
+  .scanline,
+  .orbit,
+  .rotate,
+  .float,
+  .reveal,
+  .fade-in,
+  .fade-up,
+  .fade-left,
+  .fade-right {
+    animation: none !important;
+    transition: none !important;
+  }
+}

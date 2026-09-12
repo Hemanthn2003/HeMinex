@@ -1,0 +1,216 @@
+/* =========================================================
+   HeMinexTechnology
+   Global Style Entry Point
+   ========================================================= */
+
+/*
+   Load order matters.
+
+   1. variables.css
+      Design tokens, colors, spacing, typography, shadows,
+      breakpoints and reusable CSS variables.
+
+   2. animations.css
+      Keyframes and reusable animation utility classes.
+
+   3. global.css
+      Reset, typography, containers, buttons, cards,
+      accessibility and foundational layout.
+
+   4. effects.css
+      PCB, grid, glow, glass, scanlines, particles and
+      futuristic visual effects.
+
+   5. responsive.css
+      Desktop, tablet, mobile and reduced-motion overrides.
+*/
+@import "lenis/dist/lenis.css";
+@import "./styles/variables.css";
+@import "./styles/animations.css";
+@import "./styles/global.css";
+@import "./styles/effects.css";
+@import "./styles/responsive.css";
+
+
+/* =========================================================
+   GLOBAL TEXT CARET FIX
+   Hides the blinking text-editor caret on normal website
+   content without disabling text selection or form inputs.
+   ========================================================= */
+
+html,
+body,
+#root {
+  caret-color: transparent;
+}
+
+/* Normal website content */
+body * {
+  caret-color: transparent;
+}
+
+/* Keep the caret working normally inside form controls */
+input,
+textarea,
+select,
+[contenteditable="true"] {
+  caret-color: auto;
+}
+/* =========================================================
+   GLOBAL SMOOTH SCROLL
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  scroll-behavior: smooth;
+}
+
+/* Smooth anchor scrolling */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   SCROLL RENDERING / MOBILE TOUCH
+   ========================================================= */
+
+html,
+body {
+  -webkit-overflow-scrolling: touch;
+}
+
+body {
+  overscroll-behavior-y: auto;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    scroll-behavior: auto;
+  }
+}
+/* =========================================================
+   GLOBAL SMOOTH SCROLL + VIEWPORT REVEAL
+   ========================================================= */
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: auto;
+}
+
+/* =========================================================
+   SMOOTH ELEMENT ENTRY
+   Add these classes to elements controlled by IntersectionObserver
+   ========================================================= */
+
+.reveal,
+.reveal-up,
+.reveal-down,
+.reveal-left,
+.reveal-right,
+.fade-in,
+.fade-up,
+.fade-down,
+.fade-left,
+.fade-right,
+[data-reveal] {
+  opacity: 0;
+  will-change: opacity, transform;
+  transition:
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Starting positions */
+
+.reveal,
+.reveal-up,
+.fade-up,
+[data-reveal="up"] {
+  transform: translate3d(0, 45px, 0);
+}
+
+.reveal-down,
+.fade-down,
+[data-reveal="down"] {
+  transform: translate3d(0, -45px, 0);
+}
+
+.reveal-left,
+.fade-left,
+[data-reveal="left"] {
+  transform: translate3d(-45px, 0, 0);
+}
+
+.reveal-right,
+.fade-right,
+[data-reveal="right"] {
+  transform: translate3d(45px, 0, 0);
+}
+
+/* Visible state */
+
+.reveal.is-visible,
+.reveal-up.is-visible,
+.reveal-down.is-visible,
+.reveal-left.is-visible,
+.reveal-right.is-visible,
+.fade-in.is-visible,
+.fade-up.is-visible,
+.fade-down.is-visible,
+.fade-left.is-visible,
+.fade-right.is-visible,
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* =========================================================
+   SMOOTH SCROLLING FOR ANCHOR LINKS
+   ========================================================= */
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .reveal,
+  .reveal-up,
+  .reveal-down,
+  .reveal-left,
+  .reveal-right,
+  .fade-in,
+  .fade-up,
+  .fade-down,
+  .fade-left,
+  .fade-right,
+  [data-reveal] {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}

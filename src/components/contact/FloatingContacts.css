@@ -1,0 +1,814 @@
+/* =========================================================
+   HEMINEXTECHNOLOGY
+   FLOATING CONTACT SYSTEM
+   RIGHT SIDE / LOWER-CENTER POSITION
+   ========================================================= */
+
+.floating-contacts {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+
+  width: 0;
+  height: 0;
+
+  z-index: 9990;
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   BASE CONTACT BUTTON
+   ========================================================= */
+
+.floating-contact {
+  position: absolute;
+
+  width: 92px;
+  height: 92px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50%;
+
+  text-decoration: none;
+
+  pointer-events: auto;
+
+  isolation: isolate;
+
+  outline: none;
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+
+
+/* =========================================================
+   POSITION
+   =========================================================
+
+   Right side:
+
+             🔵 CALL
+                ↓
+             🟢 WHATSAPP
+
+   Positioned lower than the center,
+   but still clearly above the bottom.
+   ========================================================= */
+
+
+/* CALL */
+
+.floating-contact--call {
+  right: 26px;
+  bottom: 31vh;
+}
+
+
+/* WHATSAPP */
+
+.floating-contact--whatsapp {
+  right: 26px;
+  bottom: calc(31vh - 108px);
+}
+
+
+/* =========================================================
+   ICON
+   ========================================================= */
+
+.floating-contact__icon {
+  position: relative;
+
+  width: 82px;
+  height: 82px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 5;
+
+  border-radius: 50%;
+
+  transform: translateZ(0);
+
+  transition:
+    transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+
+
+.floating-contact__icon img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  pointer-events: none;
+
+  user-select: none;
+
+  -webkit-user-drag: none;
+}
+
+
+/* =========================================================
+   PULSE
+   ========================================================= */
+
+.floating-contact__pulse {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 72px;
+  height: 72px;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 1;
+
+  animation:
+    floating-contact-pulse 2.4s ease-out infinite;
+}
+
+
+/* WhatsApp pulse */
+
+.floating-contact--whatsapp
+.floating-contact__pulse {
+  border: 1px solid rgba(0, 255, 157, 0.55);
+
+  box-shadow:
+    0 0 12px rgba(0, 255, 157, 0.55),
+    0 0 28px rgba(0, 255, 157, 0.3);
+}
+
+
+/* Call pulse */
+
+.floating-contact--call
+.floating-contact__pulse {
+  border: 1px solid rgba(0, 190, 255, 0.55);
+
+  box-shadow:
+    0 0 12px rgba(0, 190, 255, 0.55),
+    0 0 28px rgba(0, 120, 255, 0.3);
+}
+
+
+/* =========================================================
+   ORBIT RINGS
+   ========================================================= */
+
+.floating-contact__orbit {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 96px;
+  height: 38px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 2;
+
+  opacity: 0.8;
+
+  transform-origin: center;
+}
+
+
+/* Main orbit */
+
+.floating-contact__orbit--one {
+  transform:
+    translate(-50%, -50%)
+    rotate(-18deg);
+
+  animation:
+    floating-orbit-one 5s linear infinite;
+}
+
+
+/* Secondary orbit */
+
+.floating-contact__orbit--two {
+  width: 88px;
+  height: 48px;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(55deg);
+
+  animation:
+    floating-orbit-two 7s linear infinite;
+}
+
+
+/* =========================================================
+   WHATSAPP ORBITS
+   ========================================================= */
+
+.floating-contact--whatsapp
+.floating-contact__orbit--one {
+  border-top:
+    2px solid rgba(0, 255, 157, 0.95);
+
+  border-bottom:
+    1px solid rgba(0, 229, 255, 0.35);
+
+  box-shadow:
+    0 0 7px rgba(0, 255, 157, 0.65),
+    0 0 16px rgba(0, 255, 157, 0.3);
+}
+
+
+.floating-contact--whatsapp
+.floating-contact__orbit--two {
+  border-top:
+    1px solid rgba(0, 229, 255, 0.9);
+
+  border-bottom:
+    1px solid rgba(0, 255, 157, 0.35);
+
+  box-shadow:
+    0 0 7px rgba(0, 229, 255, 0.6);
+}
+
+
+/* =========================================================
+   CALL ORBITS
+   ========================================================= */
+
+.floating-contact--call
+.floating-contact__orbit--one {
+  border-top:
+    2px solid rgba(0, 217, 255, 0.95);
+
+  border-bottom:
+    1px solid rgba(43, 111, 255, 0.35);
+
+  box-shadow:
+    0 0 7px rgba(0, 217, 255, 0.65),
+    0 0 16px rgba(0, 130, 255, 0.3);
+}
+
+
+.floating-contact--call
+.floating-contact__orbit--two {
+  border-top:
+    1px solid rgba(72, 130, 255, 0.9);
+
+  border-bottom:
+    1px solid rgba(0, 217, 255, 0.35);
+
+  box-shadow:
+    0 0 7px rgba(0, 150, 255, 0.6);
+}
+
+
+/* =========================================================
+   ORBIT ANIMATION
+   ========================================================= */
+
+@keyframes floating-orbit-one {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(-18deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(342deg);
+  }
+}
+
+
+@keyframes floating-orbit-two {
+  from {
+    transform:
+      translate(-50%, -50%)
+      rotate(55deg);
+  }
+
+  to {
+    transform:
+      translate(-50%, -50%)
+      rotate(-305deg);
+  }
+}
+
+
+/* =========================================================
+   PULSE ANIMATION
+   ========================================================= */
+
+@keyframes floating-contact-pulse {
+  0% {
+    opacity: 0.7;
+
+    transform:
+      translate(-50%, -50%)
+      scale(0.85);
+  }
+
+  70% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.5);
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      scale(1.55);
+  }
+}
+
+
+/* =========================================================
+   HOVER
+   ========================================================= */
+
+.floating-contact:hover {
+  transform:
+    translateY(-7px)
+    scale(1.05);
+}
+
+
+.floating-contact:hover
+.floating-contact__icon {
+  transform: scale(1.08);
+}
+
+
+/* WhatsApp hover */
+
+.floating-contact--whatsapp:hover
+.floating-contact__icon {
+  filter:
+    brightness(1.16)
+    drop-shadow(
+      0 0 12px rgba(0, 255, 157, 0.8)
+    )
+    drop-shadow(
+      0 0 28px rgba(0, 255, 157, 0.4)
+    );
+}
+
+
+/* Call hover */
+
+.floating-contact--call:hover
+.floating-contact__icon {
+  filter:
+    brightness(1.16)
+    drop-shadow(
+      0 0 12px rgba(0, 217, 255, 0.8)
+    )
+    drop-shadow(
+      0 0 28px rgba(0, 130, 255, 0.4)
+    );
+}
+
+
+/* =========================================================
+   KEYBOARD ACCESSIBILITY
+   ========================================================= */
+
+.floating-contact:focus-visible {
+  outline:
+    2px solid #ffffff;
+
+  outline-offset: 5px;
+
+  box-shadow:
+    0 0 0 4px rgba(0, 229, 255, 0.18),
+    0 0 22px rgba(0, 229, 255, 0.45);
+}
+
+
+.floating-contact--whatsapp:focus-visible {
+  outline-color: #00ff9d;
+
+  box-shadow:
+    0 0 0 4px rgba(0, 255, 157, 0.18),
+    0 0 25px rgba(0, 255, 157, 0.5);
+}
+
+
+.floating-contact--call:focus-visible {
+  outline-color: #00e5ff;
+
+  box-shadow:
+    0 0 0 4px rgba(0, 229, 255, 0.18),
+    0 0 25px rgba(0, 229, 255, 0.5);
+}
+
+
+.floating-contact:focus:not(:focus-visible) {
+  outline: none;
+}
+
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.floating-contact__tooltip {
+  position: absolute;
+
+  right:
+    calc(100% + 14px);
+
+  bottom: 50%;
+
+  width: max-content;
+
+  max-width: 230px;
+
+  padding:
+    11px 15px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
+
+  border:
+    1px solid rgba(0, 229, 255, 0.25);
+
+  border-radius: 10px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(4, 18, 32, 0.97),
+      rgba(2, 9, 18, 0.97)
+    );
+
+  backdrop-filter: blur(12px);
+
+  -webkit-backdrop-filter: blur(12px);
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.45),
+    inset 0 0 18px rgba(0, 180, 255, 0.04);
+
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transform:
+    translate(10px, 50%);
+
+  transition:
+    opacity 0.25s ease,
+    visibility 0.25s ease,
+    transform 0.3s ease;
+}
+
+
+.floating-contact__tooltip strong {
+  color: #ffffff;
+
+  font-size: 13px;
+
+  font-weight: 700;
+
+  white-space: nowrap;
+}
+
+
+.floating-contact__tooltip span {
+  color:
+    rgba(190, 216, 230, 0.75);
+
+  font-size: 11px;
+
+  line-height: 1.4;
+
+  white-space: nowrap;
+}
+
+
+.floating-contact:hover
+.floating-contact__tooltip,
+
+.floating-contact:focus-visible
+.floating-contact__tooltip {
+  opacity: 1;
+
+  visibility: visible;
+
+  transform:
+    translate(0, 50%);
+}
+
+
+/* =========================================================
+   ORBIT PARTICLES
+   ========================================================= */
+
+.floating-contact::before,
+.floating-contact::after {
+  content: "";
+
+  position: absolute;
+
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  z-index: 4;
+
+  animation:
+    floating-particle 4s linear infinite;
+}
+
+
+/* WhatsApp particles */
+
+.floating-contact--whatsapp::before {
+  background: #00ff9d;
+
+  box-shadow:
+    0 0 8px #00ff9d,
+    0 0 18px rgba(0, 255, 157, 0.7);
+}
+
+
+.floating-contact--whatsapp::after {
+  width: 4px;
+  height: 4px;
+
+  background: #00e5ff;
+
+  box-shadow:
+    0 0 8px #00e5ff,
+    0 0 16px rgba(0, 229, 255, 0.65);
+
+  animation-duration: 6s;
+}
+
+
+/* Call particles */
+
+.floating-contact--call::before {
+  background: #00e5ff;
+
+  box-shadow:
+    0 0 8px #00e5ff,
+    0 0 18px rgba(0, 150, 255, 0.7);
+}
+
+
+.floating-contact--call::after {
+  width: 4px;
+  height: 4px;
+
+  background: #6c7cff;
+
+  box-shadow:
+    0 0 8px #6c7cff,
+    0 0 16px rgba(80, 100, 255, 0.65);
+
+  animation-duration: 6s;
+}
+
+
+/* =========================================================
+   PARTICLE ANIMATION
+   ========================================================= */
+
+@keyframes floating-particle {
+
+  from {
+    transform:
+      rotate(0deg)
+      translateX(45px)
+      rotate(0deg);
+  }
+
+  to {
+    transform:
+      rotate(360deg)
+      translateX(45px)
+      rotate(-360deg);
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+  .floating-contact {
+    width: 82px;
+    height: 82px;
+  }
+
+
+  .floating-contact__icon {
+    width: 74px;
+    height: 74px;
+  }
+
+
+  .floating-contact__orbit {
+    width: 86px;
+  }
+
+
+  .floating-contact__orbit--two {
+    width: 80px;
+  }
+
+
+  .floating-contact--call {
+    right: 18px;
+
+    bottom: 34vh;
+  }
+
+
+  .floating-contact--whatsapp {
+    right: 18px;
+
+    bottom: calc(34vh - 96px);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  .floating-contact {
+    width: 70px;
+    height: 70px;
+  }
+
+
+  .floating-contact__icon {
+    width: 66px;
+    height: 66px;
+  }
+
+
+  .floating-contact__orbit {
+    width: 74px;
+    height: 31px;
+
+    border-width: 1px;
+  }
+
+
+  .floating-contact__orbit--two {
+    width: 70px;
+    height: 38px;
+  }
+
+
+  .floating-contact__pulse {
+    width: 60px;
+    height: 60px;
+  }
+
+
+  .floating-contact--call {
+    right: 12px;
+
+    bottom: 33vh;
+  }
+
+
+  .floating-contact--whatsapp {
+    right: 12px;
+
+    bottom: calc(33vh - 82px);
+  }
+
+
+  /* Hide tooltip on touch devices */
+
+  .floating-contact__tooltip {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 380px) {
+
+  .floating-contact {
+    width: 62px;
+    height: 62px;
+  }
+
+
+  .floating-contact__icon {
+    width: 59px;
+    height: 59px;
+  }
+
+
+  .floating-contact__orbit {
+    width: 68px;
+  }
+
+
+  .floating-contact__orbit--two {
+    width: 62px;
+  }
+
+
+  .floating-contact__pulse {
+    width: 54px;
+    height: 54px;
+  }
+
+
+  .floating-contact--call {
+    right: 8px;
+
+    bottom: 32vh;
+  }
+
+
+  .floating-contact--whatsapp {
+    right: 8px;
+
+    bottom: calc(32vh - 74px);
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .floating-contact__orbit,
+  .floating-contact__pulse,
+  .floating-contact::before,
+  .floating-contact::after {
+    animation: none;
+  }
+
+
+  .floating-contact,
+  .floating-contact__icon,
+  .floating-contact__tooltip {
+    transition: none;
+  }
+
+
+  .floating-contact:hover {
+    transform: none;
+  }
+
+
+  .floating-contact:hover
+  .floating-contact__icon {
+    transform: none;
+  }
+}

@@ -1,0 +1,1074 @@
+/* =========================================================
+   HeMinexTechnology
+   Hero Section
+   ========================================================= */
+
+.hm-hero {
+  position: relative;
+
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+
+  padding-top: var(--hm-navbar-height);
+
+  overflow: hidden;
+}
+
+
+/* =========================================================
+   HERO ENVIRONMENT
+   ========================================================= */
+
+.hm-hero__pcb,
+.hm-hero__grid-image {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  z-index: var(--hm-z-background);
+}
+
+.hm-hero__pcb {
+  opacity: 0.34;
+
+  mix-blend-mode: screen;
+
+  filter:
+    saturate(1.2)
+    contrast(1.05);
+}
+
+.hm-hero__grid-image {
+  opacity: 0.18;
+
+  mix-blend-mode: screen;
+}
+
+
+/* =========================================================
+   HERO CONTAINER
+   ========================================================= */
+
+.hm-hero__container {
+  position: relative;
+  z-index: var(--hm-z-content);
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 0.95fr)
+    minmax(420px, 1.05fr);
+
+  align-items: center;
+
+  min-height:
+    calc(100svh - var(--hm-navbar-height));
+
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+
+
+/* =========================================================
+   HERO CONTENT
+   ========================================================= */
+
+.hm-hero__content {
+  position: relative;
+
+  z-index: 5;
+
+  max-width: 760px;
+
+  padding-block: 3rem;
+}
+
+
+/* =========================================================
+   EYEBROW
+   ========================================================= */
+
+.hm-hero__eyebrow {
+  display: flex;
+  align-items: center;
+
+  width: fit-content;
+
+  margin-bottom: 1.5rem;
+
+  color: var(--hm-cyan);
+
+  font-family: var(--hm-font-mono);
+  font-size: 0.66rem;
+  font-weight: var(--hm-weight-medium);
+
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hm-hero__eyebrow-line {
+  display: block;
+
+  width: 30px;
+  height: 1px;
+
+  margin-inline: 0.8rem;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--hm-cyan)
+    );
+
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.5);
+}
+
+.hm-hero__eyebrow-line:last-child {
+  background:
+    linear-gradient(
+      90deg,
+      var(--hm-cyan),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   TITLE
+   ========================================================= */
+
+.hm-hero__title {
+  max-width: 850px;
+
+  font-size: var(--hm-heading-xl);
+  font-weight: var(--hm-weight-extrabold);
+  line-height: 0.9;
+
+  letter-spacing: -0.065em;
+
+  text-wrap: balance;
+}
+
+.hm-hero__title-gradient {
+  display: block;
+
+  width: fit-content;
+
+  color: transparent;
+
+  background:
+    linear-gradient(
+      105deg,
+      var(--hm-blue-bright) 0%,
+      var(--hm-cyan) 50%,
+      #a6f7ff 100%
+    );
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  filter:
+    drop-shadow(
+      0 0 22px rgba(0, 217, 255, 0.13)
+    );
+}
+
+.hm-hero__title-outline {
+  display: block;
+
+  color: transparent;
+
+  -webkit-text-stroke:
+    1px rgba(216, 228, 242, 0.48);
+
+  text-shadow:
+    0 0 30px rgba(0, 217, 255, 0.045);
+}
+
+
+/* =========================================================
+   DESCRIPTION
+   ========================================================= */
+
+.hm-hero__description {
+  max-width: 650px;
+
+  margin-top: 2rem;
+
+  color: var(--hm-muted);
+
+  font-size:
+    clamp(0.95rem, 1.35vw, 1.08rem);
+
+  line-height: 1.75;
+}
+
+
+/* =========================================================
+   ACTIONS
+   ========================================================= */
+
+.hm-hero__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 0.8rem;
+
+  margin-top: 2.2rem;
+}
+
+
+/* =========================================================
+   METRICS
+   ========================================================= */
+
+.hm-hero__metrics {
+  display: flex;
+  align-items: center;
+
+  margin-top: 3.2rem;
+}
+
+.hm-hero__metric {
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.2rem;
+}
+
+.hm-hero__metric strong {
+  color: var(--hm-text);
+
+  font-family: var(--hm-font-mono);
+  font-size: 0.95rem;
+  font-weight: var(--hm-weight-semibold);
+}
+
+.hm-hero__metric span {
+  color: var(--hm-muted-dark);
+
+  font-size: 0.64rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hm-hero__metric-divider {
+  width: 1px;
+  height: 30px;
+
+  margin-inline: 1.4rem;
+
+  background:
+    linear-gradient(
+      to bottom,
+      transparent,
+      var(--hm-border-light),
+      transparent
+    );
+}
+
+
+/* =========================================================
+   DIGITAL VISUAL
+   ========================================================= */
+
+.hm-hero__visual {
+  position: relative;
+
+  width: min(100%, 760px);
+
+  aspect-ratio: 1;
+
+  justify-self: end;
+
+  display: grid;
+  place-items: center;
+
+  transform: translateX(5%);
+}
+
+
+/* =========================================================
+   VISUAL GLOW
+   ========================================================= */
+
+.hm-hero__visual-glow {
+  position: absolute;
+
+  width: 65%;
+  aspect-ratio: 1;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.16) 0%,
+      rgba(22, 119, 255, 0.09) 28%,
+      rgba(22, 119, 255, 0.025) 50%,
+      transparent 72%
+    );
+
+  filter: blur(18px);
+
+  animation:
+    hm-pulse-soft 4s ease-in-out infinite;
+}
+
+
+/* =========================================================
+   ORBITS
+   ========================================================= */
+
+.hm-hero__orbit {
+  position: absolute;
+
+  border:
+    1px solid rgba(0, 217, 255, 0.13);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+}
+
+.hm-hero__orbit::before {
+  content: "";
+
+  position: absolute;
+
+  top: 50%;
+  right: -4px;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.9),
+    0 0 22px rgba(0, 217, 255, 0.5);
+}
+
+.hm-hero__orbit--outer {
+  width: 92%;
+  aspect-ratio: 1;
+
+  border-style: dashed;
+
+  opacity: 0.45;
+
+  animation:
+    hm-orbit-spin 32s linear infinite;
+}
+
+.hm-hero__orbit--middle {
+  width: 76%;
+  aspect-ratio: 1;
+
+  transform: rotate(25deg);
+
+  opacity: 0.65;
+
+  animation:
+    hm-orbit-spin-reverse 23s linear infinite;
+}
+
+.hm-hero__orbit--inner {
+  width: 58%;
+  aspect-ratio: 1;
+
+  border-color:
+    rgba(217, 173, 69, 0.16);
+
+  transform: rotate(-30deg);
+
+  animation:
+    hm-orbit-spin 17s linear infinite;
+}
+
+
+/* =========================================================
+   PLANET
+   ========================================================= */
+
+.hm-hero__planet {
+  position: relative;
+
+  width: 49%;
+  aspect-ratio: 1;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 50%;
+
+  animation:
+    hm-planet-float 6s ease-in-out infinite;
+}
+
+.hm-hero__planet-glow {
+  position: absolute;
+
+  inset: -12%;
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.19),
+      rgba(22, 119, 255, 0.07) 42%,
+      transparent 70%
+    );
+
+  filter: blur(16px);
+}
+
+.hm-hero__planet-image {
+  position: relative;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: contain;
+
+  filter:
+    drop-shadow(
+      0 0 15px rgba(0, 217, 255, 0.22)
+    )
+    drop-shadow(
+      0 0 55px rgba(22, 119, 255, 0.14)
+    );
+}
+
+.hm-hero__planet-core {
+  position: absolute;
+
+  display: grid;
+  place-items: center;
+
+  width: 27%;
+  aspect-ratio: 1;
+
+  border:
+    1px solid rgba(0, 217, 255, 0.28);
+
+  border-radius: 50%;
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(0, 217, 255, 0.16),
+      rgba(3, 7, 18, 0.82) 70%
+    );
+
+  box-shadow:
+    inset 0 0 20px rgba(0, 217, 255, 0.08),
+    0 0 30px rgba(0, 217, 255, 0.10);
+
+  backdrop-filter: blur(5px);
+}
+
+.hm-hero__planet-core span {
+  color: var(--hm-cyan);
+
+  font-family: var(--hm-font-mono);
+
+  font-size:
+    clamp(0.6rem, 1vw, 0.9rem);
+
+  font-weight: var(--hm-weight-bold);
+
+  letter-spacing: 0.12em;
+
+  text-shadow:
+    0 0 12px rgba(0, 217, 255, 0.6);
+}
+
+
+/* =========================================================
+   TECHNOLOGY LABELS
+   ========================================================= */
+
+.hm-hero__tech {
+  position: absolute;
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.65rem;
+
+  padding:
+    0.65rem 0.9rem;
+
+  border:
+    1px solid rgba(126, 170, 220, 0.22);
+
+  border-radius: 6px;
+
+  background:
+    rgba(3, 10, 20, 0.78);
+
+  color:
+    rgba(230, 240, 250, 0.92);
+
+  font-family: var(--hm-font-mono);
+
+  /*
+  Increased from the previous 0.6rem.
+  */
+
+  font-size: 0.72rem;
+
+  font-weight:
+    var(--hm-weight-semibold);
+
+  letter-spacing: 0.13em;
+
+  backdrop-filter: blur(14px);
+
+  box-shadow:
+    0 12px 30px rgba(0, 0, 0, 0.22),
+    0 0 18px rgba(0, 217, 255, 0.05);
+
+  z-index: 5;
+
+  white-space: nowrap;
+}
+
+.hm-hero__tech-dot {
+  width: 7px;
+  height: 7px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 8px rgba(0, 217, 255, 0.95),
+    0 0 18px rgba(0, 217, 255, 0.45);
+}
+
+.hm-hero__tech--mern {
+  top: 18%;
+  left: 4%;
+
+  animation:
+    hm-float-small 4s ease-in-out infinite;
+}
+
+.hm-hero__tech--seo {
+  top: 10%;
+  right: 7%;
+
+  animation:
+    hm-float-small 4.8s ease-in-out 0.4s infinite;
+}
+
+.hm-hero__tech--leads {
+  right: 0;
+  bottom: 26%;
+
+  animation:
+    hm-float-small 4.3s ease-in-out 0.8s infinite;
+}
+
+.hm-hero__tech--branding {
+  bottom: 12%;
+  left: 8%;
+
+  animation:
+    hm-float-small 5s ease-in-out 0.2s infinite;
+}
+
+
+/* =========================================================
+   VISUAL LABELS
+   ========================================================= */
+
+.hm-hero__visual-label {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.15rem;
+
+  color:
+    rgba(141, 162, 187, 0.58);
+
+  font-family: var(--hm-font-mono);
+
+  font-size: 0.5rem;
+
+  letter-spacing: 0.12em;
+}
+
+.hm-hero__visual-label span:first-child {
+  color: var(--hm-cyan);
+}
+
+.hm-hero__visual-label--one {
+  top: 28%;
+  left: 20%;
+}
+
+.hm-hero__visual-label--two {
+  right: 16%;
+  bottom: 34%;
+
+  text-align: right;
+}
+
+
+/* =========================================================
+   FOCUS RING
+   ========================================================= */
+
+.hm-hero__focus-ring {
+  width: 82px;
+  height: 82px;
+
+  opacity: 0.65;
+}
+
+
+/* =========================================================
+   CORNER DATA
+   ========================================================= */
+
+.hm-hero__corner {
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 0.3rem;
+
+  color:
+    rgba(141, 162, 187, 0.38);
+
+  font-family: var(--hm-font-mono);
+
+  font-size: 0.5rem;
+
+  letter-spacing: 0.14em;
+
+  z-index: var(--hm-z-content);
+
+  pointer-events: none;
+}
+
+.hm-hero__corner--top-left {
+  top:
+    calc(
+      var(--hm-navbar-height) + 1.5rem
+    );
+
+  left: 2rem;
+}
+
+.hm-hero__corner--top-right {
+  top:
+    calc(
+      var(--hm-navbar-height) + 1.5rem
+    );
+
+  right: 2rem;
+
+  text-align: right;
+}
+
+.hm-hero__corner--bottom-left {
+  bottom: 2rem;
+  left: 2rem;
+
+  line-height: 1.8;
+}
+
+
+/* =========================================================
+   SCROLL INDICATOR
+   ========================================================= */
+
+.hm-hero__scroll {
+  position: absolute;
+
+  left: 50%;
+  bottom: 1.6rem;
+
+  z-index: var(--hm-z-content);
+
+  display: flex;
+  align-items: center;
+
+  gap: 0.7rem;
+
+  color:
+    rgba(141, 162, 187, 0.58);
+
+  transform: translateX(-50%);
+
+  transition:
+    color var(--hm-transition-fast);
+}
+
+.hm-hero__scroll:hover {
+  color: var(--hm-cyan);
+}
+
+.hm-hero__scroll-line {
+  position: relative;
+
+  width: 34px;
+  height: 1px;
+
+  overflow: hidden;
+
+  background:
+    rgba(126, 170, 220, 0.2);
+}
+
+.hm-hero__scroll-line span {
+  position: absolute;
+
+  top: 0;
+  left: -100%;
+
+  width: 100%;
+  height: 100%;
+
+  background: var(--hm-cyan);
+
+  box-shadow:
+    0 0 10px rgba(0, 217, 255, 0.8);
+
+  animation:
+    hm-scan-horizontal 2.2s linear infinite;
+}
+
+.hm-hero__scroll-text {
+  font-family: var(--hm-font-mono);
+
+  font-size: 0.53rem;
+
+  letter-spacing: 0.13em;
+
+  text-transform: uppercase;
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1279px) {
+  .hm-hero__container {
+    grid-template-columns:
+      minmax(0, 0.95fr)
+      minmax(360px, 0.95fr);
+  }
+
+  .hm-hero__visual {
+    width: 680px;
+    max-width: 100%;
+  }
+
+  .hm-hero__content {
+    max-width: 650px;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 1023px) {
+  .hm-hero {
+    min-height: auto;
+  }
+
+  .hm-hero__container {
+    grid-template-columns: 1fr;
+
+    min-height: auto;
+
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+  }
+
+  .hm-hero__content {
+    max-width: 800px;
+
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+  }
+
+  .hm-hero__visual {
+    width: min(700px, 90vw);
+
+    justify-self: center;
+
+    margin-top: -1rem;
+
+    transform: none;
+  }
+
+  .hm-hero__title {
+    max-width: 750px;
+  }
+
+  .hm-hero__description {
+    max-width: 650px;
+  }
+
+  .hm-hero__corner--bottom-left {
+    display: none;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hm-hero {
+    min-height: auto;
+
+    padding-top:
+      var(--hm-navbar-height);
+  }
+
+  .hm-hero__container {
+    width:
+      calc(100% - 2.5rem);
+
+    padding-top: 2.5rem;
+    padding-bottom: 5rem;
+  }
+
+  .hm-hero__content {
+    padding-block: 2rem 0;
+  }
+
+  .hm-hero__eyebrow {
+    font-size: 0.57rem;
+
+    letter-spacing: 0.11em;
+  }
+
+  .hm-hero__eyebrow-line {
+    width: 18px;
+
+    margin-inline: 0.55rem;
+  }
+
+  .hm-hero__title {
+    line-height: 0.94;
+
+    letter-spacing: -0.055em;
+  }
+
+  .hm-hero__description {
+    margin-top: 1.5rem;
+
+    font-size: 0.9rem;
+
+    line-height: 1.65;
+  }
+
+  .hm-hero__actions {
+    flex-direction: column;
+
+    align-items: stretch;
+
+    margin-top: 1.8rem;
+  }
+
+  .hm-hero__actions .hm-button {
+    width: 100%;
+  }
+
+  .hm-hero__metrics {
+    margin-top: 2.5rem;
+  }
+
+  .hm-hero__metric-divider {
+    margin-inline: 0.9rem;
+  }
+
+  .hm-hero__metric strong {
+    font-size: 0.8rem;
+  }
+
+  .hm-hero__metric span {
+    font-size: 0.54rem;
+  }
+
+  .hm-hero__visual {
+    width: min(100%, 500px);
+
+    margin-top: 1rem;
+  }
+
+  .hm-hero__planet {
+    width: 48%;
+  }
+
+  /*
+  ==========================================================
+  BIGGER MOBILE TECHNOLOGY LABELS
+  ==========================================================
+  */
+
+  .hm-hero__tech {
+    gap: 0.55rem;
+
+    padding:
+      0.52rem 0.7rem;
+
+    font-size: 0.62rem;
+
+    letter-spacing: 0.10em;
+
+    border-radius: 6px;
+  }
+
+  .hm-hero__tech-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .hm-hero__tech--mern {
+    left: 0;
+  }
+
+  .hm-hero__tech--seo {
+    right: 1%;
+  }
+
+  .hm-hero__tech--leads {
+    right: 0;
+  }
+
+  .hm-hero__tech--branding {
+    left: 2%;
+  }
+
+  .hm-hero__visual-label {
+    display: none;
+  }
+
+  .hm-hero__focus-ring {
+    width: 58px;
+    height: 58px;
+  }
+
+  .hm-hero__corner {
+    display: none;
+  }
+
+  .hm-hero__scroll {
+    display: none;
+  }
+
+  .hm-hero__pcb {
+    opacity: 0.22;
+  }
+
+  .hm-hero__grid-image {
+    opacity: 0.1;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .hm-hero__container {
+    width:
+      calc(100% - 2rem);
+  }
+
+  .hm-hero__eyebrow {
+    align-items: flex-start;
+
+    line-height: 1.5;
+  }
+
+  .hm-hero__metrics {
+    justify-content: space-between;
+  }
+
+  .hm-hero__metric-divider {
+    margin-inline: 0.5rem;
+  }
+
+  .hm-hero__visual {
+    width: 108%;
+
+    max-width: none;
+
+    margin-left: -4%;
+  }
+
+  /*
+  Keep labels readable even on
+  very small phones.
+  */
+
+  .hm-hero__tech {
+    padding:
+      0.48rem 0.62rem;
+
+    font-size: 0.58rem;
+
+    letter-spacing: 0.08em;
+  }
+
+  .hm-hero__tech-dot {
+    width: 6px;
+    height: 6px;
+  }
+
+  .hm-hero__tech--leads {
+    right: 0;
+  }
+
+  .hm-hero__tech--branding {
+    left: 0;
+  }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-hero__visual-glow,
+  .hm-hero__orbit,
+  .hm-hero__planet,
+  .hm-hero__tech,
+  .hm-hero__scroll-line span {
+    animation: none;
+  }
+}

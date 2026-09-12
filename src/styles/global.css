@@ -1,0 +1,920 @@
+/* =========================================================
+   HeMinexTechnology
+   Global Styles
+   ========================================================= */
+
+/* =========================================================
+   RESET
+   ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  width: 100%;
+  min-height: 100%;
+  scroll-behavior: auto;
+  background: var(--hm-bg);
+  color-scheme: dark;
+}
+
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100vh;
+
+  background:
+    var(--hm-gradient-space),
+    var(--hm-bg);
+
+  color: var(--hm-text);
+  font-family: var(--hm-font-primary);
+  font-size: 16px;
+  font-weight: var(--hm-weight-regular);
+  line-height: var(--hm-leading-normal);
+
+  overflow-x: hidden;
+
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  text-rendering: optimizeLegibility;
+}
+
+body,
+button,
+input,
+textarea,
+select {
+  font-family: var(--hm-font-primary);
+}
+
+button,
+input,
+textarea,
+select {
+  font-size: inherit;
+}
+
+button {
+  border: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-family: var(--hm-font-display);
+  color: var(--hm-text);
+  font-weight: var(--hm-weight-bold);
+}
+
+strong {
+  font-weight: var(--hm-weight-semibold);
+}
+
+/* =========================================================
+   ACCESSIBILITY
+   ========================================================= */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--hm-cyan);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   PAGE ROOT
+   ========================================================= */
+
+#root {
+  width: 100%;
+  min-height: 100vh;
+  isolation: isolate;
+}
+
+/* =========================================================
+   MAIN PAGE
+   ========================================================= */
+
+main {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* =========================================================
+   GLOBAL CONTAINER
+   ========================================================= */
+
+.hm-container {
+  width: min(
+    calc(100% - (var(--hm-page-padding) * 2)),
+    var(--hm-container)
+  );
+
+  margin-inline: auto;
+}
+
+.hm-container-wide {
+  width: min(
+    calc(100% - (var(--hm-page-padding) * 2)),
+    var(--hm-container-wide)
+  );
+
+  margin-inline: auto;
+}
+
+/* =========================================================
+   SECTION
+   ========================================================= */
+
+.hm-section {
+  position: relative;
+  width: 100%;
+  padding-block: clamp(5rem, 10vw, 10rem);
+}
+
+.hm-section--tight {
+  padding-block: clamp(3.5rem, 7vw, 7rem);
+}
+
+.hm-section--large {
+  padding-block: clamp(7rem, 14vw, 14rem);
+}
+
+/* =========================================================
+   SECTION HEADER
+   ========================================================= */
+
+.hm-section-header {
+  position: relative;
+  z-index: var(--hm-z-content);
+
+  max-width: 850px;
+  margin-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.hm-section-header--center {
+  margin-inline: auto;
+  text-align: center;
+}
+
+.hm-section-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+
+  margin-bottom: 1.2rem;
+
+  color: var(--hm-cyan);
+  font-family: var(--hm-font-mono);
+  font-size: var(--hm-text-xs);
+  font-weight: var(--hm-weight-semibold);
+  letter-spacing: 0.18em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hm-section-eyebrow::before {
+  content: "";
+
+  width: 28px;
+  height: 1px;
+
+  background: var(--hm-cyan);
+  box-shadow: var(--hm-glow-cyan);
+}
+
+.hm-section-title {
+  font-size: var(--hm-heading-md);
+  line-height: var(--hm-leading-tight);
+  letter-spacing: -0.045em;
+}
+
+.hm-section-description {
+  max-width: 680px;
+  margin-top: 1.5rem;
+
+  color: var(--hm-muted);
+  font-size: clamp(0.95rem, 1.5vw, 1.1rem);
+  line-height: var(--hm-leading-relaxed);
+}
+
+.hm-section-header--center .hm-section-description {
+  margin-inline: auto;
+}
+
+/* =========================================================
+   TEXT UTILITIES
+   ========================================================= */
+
+.hm-gradient-text {
+  color: transparent;
+  background: var(--hm-gradient-primary);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.hm-gold-text {
+  color: var(--hm-gold-bright);
+}
+
+.hm-cyan-text {
+  color: var(--hm-cyan);
+}
+
+.hm-blue-text {
+  color: var(--hm-blue-bright);
+}
+
+.hm-muted-text {
+  color: var(--hm-muted);
+}
+
+.hm-mono {
+  font-family: var(--hm-font-mono);
+}
+
+.hm-uppercase {
+  text-transform: uppercase;
+}
+
+.hm-center {
+  text-align: center;
+}
+
+/* =========================================================
+   BUTTON SYSTEM
+   ========================================================= */
+
+.hm-button {
+  position: relative;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+
+  min-height: 52px;
+  padding: 0.85rem 1.4rem;
+
+  border: 1px solid transparent;
+  border-radius: var(--hm-radius-pill);
+
+  font-size: 0.88rem;
+  font-weight: var(--hm-weight-semibold);
+  letter-spacing: 0.01em;
+
+  white-space: nowrap;
+
+  overflow: hidden;
+
+  transition:
+    transform var(--hm-transition-normal),
+    border-color var(--hm-transition-normal),
+    background var(--hm-transition-normal),
+    box-shadow var(--hm-transition-normal),
+    color var(--hm-transition-normal);
+}
+
+.hm-button:hover {
+  transform: translateY(-3px);
+}
+
+.hm-button:active {
+  transform: translateY(-1px);
+}
+
+/* Primary */
+
+.hm-button--primary {
+  color: var(--hm-white);
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--hm-blue-deep),
+      var(--hm-blue),
+      var(--hm-cyan)
+    );
+
+  box-shadow:
+    0 10px 35px rgba(22, 119, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.hm-button--primary:hover {
+  box-shadow:
+    0 16px 45px rgba(22, 119, 255, 0.28),
+    var(--hm-shadow-cyan);
+}
+
+/* Outline */
+
+.hm-button--outline {
+  color: var(--hm-text);
+
+  border-color: var(--hm-border-light);
+  background: rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.hm-button--outline:hover {
+  border-color: var(--hm-border-cyan);
+  background: var(--hm-cyan-10);
+
+  box-shadow: var(--hm-shadow-cyan);
+}
+
+/* Gold */
+
+.hm-button--gold {
+  color: #090b10;
+
+  background: var(--hm-gradient-gold);
+
+  box-shadow:
+    0 10px 35px rgba(217, 173, 69, 0.16),
+    inset 0 1px 0 rgba(255, 255, 255, 0.28);
+}
+
+.hm-button--gold:hover {
+  box-shadow:
+    0 16px 45px rgba(217, 173, 69, 0.24),
+    var(--hm-shadow-gold);
+}
+
+/* Small */
+
+.hm-button--sm {
+  min-height: 42px;
+  padding: 0.65rem 1rem;
+  font-size: 0.78rem;
+}
+
+/* Large */
+
+.hm-button--lg {
+  min-height: 58px;
+  padding-inline: 1.7rem;
+  font-size: 0.95rem;
+}
+
+/* Button shine */
+
+.hm-button::after {
+  content: "";
+
+  position: absolute;
+  top: -100%;
+  left: -35%;
+
+  width: 25%;
+  height: 300%;
+
+  background: rgba(255, 255, 255, 0.14);
+
+  transform: rotate(20deg);
+  transition: left 700ms ease;
+}
+
+.hm-button:hover::after {
+  left: 125%;
+}
+
+/* =========================================================
+   GLASS PANEL
+   ========================================================= */
+
+.hm-glass {
+  background: var(--hm-glass-bg);
+
+  border: 1px solid var(--hm-glass-border);
+  border-radius: var(--hm-radius-lg);
+
+  box-shadow:
+    var(--hm-shadow-md),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(var(--hm-glass-blur));
+  -webkit-backdrop-filter: blur(var(--hm-glass-blur));
+}
+
+.hm-glass-heavy {
+  background: var(--hm-glass-bg-heavy);
+
+  border: 1px solid var(--hm-glass-border);
+  border-radius: var(--hm-radius-lg);
+
+  box-shadow:
+    var(--hm-shadow-lg),
+    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+
+  backdrop-filter: blur(var(--hm-glass-blur-heavy));
+  -webkit-backdrop-filter: blur(var(--hm-glass-blur-heavy));
+}
+
+/* =========================================================
+   CARD
+   ========================================================= */
+
+.hm-card {
+  position: relative;
+
+  border: 1px solid var(--hm-border);
+  border-radius: var(--hm-radius-lg);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(13, 30, 51, 0.68),
+      rgba(4, 11, 22, 0.78)
+    );
+
+  overflow: hidden;
+
+  transition:
+    transform var(--hm-transition-normal),
+    border-color var(--hm-transition-normal),
+    box-shadow var(--hm-transition-normal);
+}
+
+.hm-card:hover {
+  border-color: var(--hm-border-blue);
+
+  box-shadow:
+    0 25px 70px rgba(0, 0, 0, 0.38),
+    0 0 45px rgba(22, 119, 255, 0.08);
+}
+
+/* =========================================================
+   DECORATIVE CORNER
+   ========================================================= */
+
+.hm-corner-decoration {
+  position: absolute;
+
+  width: 32px;
+  height: 32px;
+
+  pointer-events: none;
+}
+
+.hm-corner-decoration::before,
+.hm-corner-decoration::after {
+  content: "";
+
+  position: absolute;
+
+  background: var(--hm-cyan);
+
+  opacity: 0.7;
+
+  box-shadow: var(--hm-glow-cyan);
+}
+
+.hm-corner-decoration::before {
+  top: 0;
+  left: 0;
+
+  width: 1px;
+  height: 100%;
+}
+
+.hm-corner-decoration::after {
+  top: 0;
+  left: 0;
+
+  width: 100%;
+  height: 1px;
+}
+
+.hm-corner-decoration--top-right {
+  top: 0;
+  right: 0;
+
+  transform: rotate(90deg);
+}
+
+.hm-corner-decoration--bottom-left {
+  bottom: 0;
+  left: 0;
+
+  transform: rotate(-90deg);
+}
+
+.hm-corner-decoration--bottom-right {
+  right: 0;
+  bottom: 0;
+
+  transform: rotate(180deg);
+}
+
+/* =========================================================
+   STATUS DOT
+   ========================================================= */
+
+.hm-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  color: var(--hm-muted);
+  font-family: var(--hm-font-mono);
+  font-size: var(--hm-text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hm-status-dot {
+  position: relative;
+
+  width: 7px;
+  height: 7px;
+
+  border-radius: 50%;
+
+  background: var(--hm-cyan);
+  box-shadow: var(--hm-glow-cyan);
+}
+
+.hm-status-dot::after {
+  content: "";
+
+  position: absolute;
+  inset: -4px;
+
+  border: 1px solid var(--hm-cyan);
+  border-radius: 50%;
+
+  opacity: 0.35;
+
+  animation: hm-pulse 2s ease-in-out infinite;
+}
+
+/* =========================================================
+   DIVIDER
+   ========================================================= */
+
+.hm-divider {
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      var(--hm-border),
+      transparent
+    );
+}
+
+/* =========================================================
+   VISUAL SEPARATOR
+   ========================================================= */
+
+.hm-tech-line {
+  position: relative;
+
+  width: 100%;
+  height: 1px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      var(--hm-border-blue) 20%,
+      var(--hm-border-cyan) 50%,
+      var(--hm-border-blue) 80%,
+      transparent 100%
+    );
+}
+
+.hm-tech-line::after {
+  content: "";
+
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 80px;
+  height: 3px;
+
+  transform: translate(-50%, -50%);
+
+  background: var(--hm-gradient-primary);
+
+  filter: blur(1px);
+
+  box-shadow: var(--hm-glow-cyan);
+}
+
+/* =========================================================
+   SCROLLBAR
+   ========================================================= */
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(22, 119, 255, 0.45) #020711;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #020711;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+
+  background:
+    linear-gradient(
+      180deg,
+      var(--hm-blue),
+      var(--hm-cyan)
+    );
+
+  border: 2px solid #020711;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background:
+    linear-gradient(
+      180deg,
+      var(--hm-cyan),
+      var(--hm-blue)
+    );
+}
+
+/* =========================================================
+   HORIZONTAL SCROLL PREVENTION
+   ========================================================= */
+
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* =========================================================
+   RESPONSIVE IMAGE / MEDIA
+   ========================================================= */
+
+.hm-media-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hm-media-contain {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* =========================================================
+   VISIBILITY UTILITIES
+   ========================================================= */
+
+.hm-hidden {
+  display: none !important;
+}
+
+.hm-relative {
+  position: relative;
+}
+
+.hm-absolute {
+  position: absolute;
+}
+
+.hm-overflow-hidden {
+  overflow: hidden;
+}
+
+.hm-z-content {
+  position: relative;
+  z-index: var(--hm-z-content);
+}
+
+/* =========================================================
+   SPACING UTILITIES
+   ========================================================= */
+
+.hm-mt-1 {
+  margin-top: var(--hm-space-1);
+}
+
+.hm-mt-2 {
+  margin-top: var(--hm-space-2);
+}
+
+.hm-mt-4 {
+  margin-top: var(--hm-space-4);
+}
+
+.hm-mt-6 {
+  margin-top: var(--hm-space-6);
+}
+
+.hm-mt-8 {
+  margin-top: var(--hm-space-8);
+}
+
+.hm-mt-12 {
+  margin-top: var(--hm-space-12);
+}
+
+.hm-mb-2 {
+  margin-bottom: var(--hm-space-2);
+}
+
+.hm-mb-4 {
+  margin-bottom: var(--hm-space-4);
+}
+
+.hm-mb-6 {
+  margin-bottom: var(--hm-space-6);
+}
+
+.hm-mb-8 {
+  margin-bottom: var(--hm-space-8);
+}
+
+.hm-mb-12 {
+  margin-bottom: var(--hm-space-12);
+}
+
+/* =========================================================
+   REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .hm-button {
+    min-height: 48px;
+  }
+
+  .hm-section {
+    padding-block: 5rem;
+  }
+
+  .hm-section-header {
+    margin-bottom: 3rem;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 480px) {
+  .hm-container,
+  .hm-container-wide {
+    width: calc(100% - 2rem);
+  }
+
+  .hm-button--lg {
+    width: 100%;
+  }
+}
+/* =========================================================
+   ACCESSIBILITY — REDUCED MOTION
+   ========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto !important;
+  }
+
+  body {
+    scroll-behavior: auto !important;
+  }
+
+  /*
+   * Content must never depend on JavaScript animation
+   * to become visible.
+   */
+
+  main,
+  section,
+  article,
+  header,
+  footer,
+  nav {
+    visibility: visible;
+  }
+
+  /*
+   * Prevent animation helpers from accidentally hiding
+   * content before JavaScript starts.
+   */
+
+  .reveal,
+  .fade-in,
+  .fade-up,
+  .fade-left,
+  .fade-right,
+  .gsap-hidden {
+    opacity: 1 !important;
+    visibility: visible !important;
+    transform: none !important;
+  }
+}
+
+/* =========================================================
+   LANDING PAGE OVERFLOW SAFETY
+   ========================================================= */
+
+html {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+main {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img,
+svg,
+video,
+canvas {
+  max-width: 100%;
+}

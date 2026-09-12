@@ -6,7 +6,7 @@ The website showcases our development, branding, SEO, and digital growth service
 
 ## 🌐 Live Demo
 
-🚀 **Live Website:** https://your-live-demo-url.vercel.app
+🚀 **Live Website:** [https://your-live-demo-url.vercel.app](https://heminex.vercel.app/)
 
 > Replace the URL above with your actual Vercel deployment URL later.
 
